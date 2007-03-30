@@ -1,0 +1,32 @@
+module muIsolationSumInConesTracks = MuIsolationSumInConesProducer {
+  bool ProduceSum = true
+  bool ProduceCount = true
+  bool RemoveOtherVetos = false
+
+  VPSet InputMuIsoDeposits = {
+    {
+       InputTag DepositTag = muIsoDepositCtfTk
+       double DepositWeight = 1.
+       double DepositThreshold = 1.5
+    }
+  }
+
+  VPSet ConeSizes = {
+    {
+       double ConeSize = 0.2
+       string ConeSizeName = "cone02"
+    },
+    {
+       double ConeSize = 0.3
+       string ConeSizeName = "cone03"
+    },
+    {
+       double ConeSize = 0.4
+       string ConeSizeName = "cone04"
+    },
+    {
+       double ConeSize = 0.7
+       string ConeSizeName = "cone07"
+    }
+  }
+}
