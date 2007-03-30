@@ -1,0 +1,41 @@
+module muIsolationSumInConesTracksMuVetoed = MuIsolationSumInConesProducer {
+  bool ProduceSum = true
+  bool ProduceCount = true
+  bool RemoveOtherVetos = true
+
+  VPSet InputMuIsoDeposits = {
+    {
+       InputTag DepositTag = muIsoDepositCtfTk
+       double DepositWeight = 1.
+       double DepositThreshold = 1.5
+    }
+  }
+
+  VPSet ConeSizes = {
+    {
+       double ConeSize = 0.2
+       string ConeSizeName = "cone02"
+    },
+    {
+       double ConeSize = 0.3
+       string ConeSizeName = "cone03"
+    },
+    {
+       double ConeSize = 0.4
+       string ConeSizeName = "cone04"
+    },
+    {
+       double ConeSize = 0.7
+       string ConeSizeName = "cone07"
+    }
+  }
+
+  PSet VetoPSet = {
+    bool SelectAll = true
+    #set the above to false and uncomment below to veto a subset only
+#    double MuAbsEtaMax = 2.5
+#    double MuPtMin = 5
+#    double MuAbsZMax = 15
+#    double MuD0Max = 0.1
+  }
+}
