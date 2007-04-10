@@ -1,0 +1,62 @@
+#define FEVT/REC/AOD pieces
+
+#Full event
+block RecoMuonIsolationFEVT = {
+  untracked vstring outputCommands = {
+#MuIsoDeposits
+    "keep *_muIsoDepositCtfTk_*_*",
+    "keep *_muIsoDepositCalEcal_*_*",
+    "keep *_muIsoDepositCalHcal_*_*",
+    "keep *_muIsoDepositCalByAssociatorTowers_*_*",
+    "keep *_muIsoDepositCalByAssociatorHits_*_*",
+#MuIsolationSums
+    "keep *_muIsolationSumInConesTracks_*_*",
+    "keep *_muIsolationSumInConesTracksMuVetoed_*_*",
+    "keep *_muIsolationSumCalEcal_*_*",
+    "keep *_muIsolationSumCalHcal_*_*",
+    "keep *_muIsolationSumAssocEcalTowers_*_*",
+    "keep *_muIsolationSumAssocHcalTowers_*_*",
+    "keep *_muIsolationSumAssocHOTowers_*_*",
+    "keep *_muIsolationSumAssocEcalHits_*_*",
+    "keep *_muIsolationSumAssocHcalHits_*_*",
+    "keep *_muIsolationSumAssocHOHits_*_*"
+  }
+}
+
+#RECO part of the event
+block RecoMuonIsolationRECO = {
+  untracked vstring outputCommands = {
+#MuIsoDeposits
+    "keep *_muIsoDepositCtfTk_*_*",
+    "keep *_muIsoDepositCalEcal_*_*",
+    "keep *_muIsoDepositCalHcal_*_*",
+    "keep *_muIsoDepositCalByAssociatorTowers_*_*",
+    "keep *_muIsoDepositCalByAssociatorHits_*_*",
+#MuIsolationSums
+    "keep *_muIsolationSumInConesTracks_*_*",
+    "keep *_muIsolationSumInConesTracksMuVetoed_*_*",
+    "keep *_muIsolationSumCalEcal_*_*",
+    "keep *_muIsolationSumCalHcal_*_*",
+    "keep *_muIsolationSumAssocEcalTowers_*_*",
+    "keep *_muIsolationSumAssocHcalTowers_*_*",
+    "keep *_muIsolationSumAssocHOTowers_*_*",
+    "keep *_muIsolationSumAssocEcalHits_*_*",
+    "keep *_muIsolationSumAssocHcalHits_*_*",
+    "keep *_muIsolationSumAssocHOHits_*_*"
+  }
+}
+
+#AOD part of the event
+block RecoMuonIsolationAOD = {
+  untracked vstring outputCommands = {
+#MuIsolationSums
+    "keep *_muIsolationSumInConesTracks_*_*",
+    "keep *_muIsolationSumInConesTracksMuVetoed_*_*",
+#    "keep *_muIsolationSumCalEcal_*_*",
+#    "keep *_muIsolationSumCalHcal_*_*",
+    "keep *_muIsolationSumAssocEcalTowers_*_*",
+    "keep *_muIsolationSumAssocHcalTowers_*_*",
+    "keep *_muIsolationSumAssocHOTowers_*_*"
+  }
+}
+
