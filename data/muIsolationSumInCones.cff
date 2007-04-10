@@ -1,0 +1,82 @@
+module muIsolationSumCalEcal = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muIsolationSumCalEcal.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalEcal
+double DepositWeight = 1.
+double DepositThreshold = 0.
+} }
+replace muIsolationSumCalEcal.ProduceCount = false
+
+module muIsolationSumCalHcal = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muIsolationSumCalHcal.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalHcal
+double DepositWeight = 1.
+double DepositThreshold = 0.
+} }
+replace muIsolationSumCalHcal.ProduceCount = false
+
+module muIsolationSumAssocEcalTowers = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muIsolationSumAssocEcalTowers.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalByAssociatorTowers:ecal
+double DepositWeight = 1.
+double DepositThreshold = 0.
+} }
+replace muIsolationSumAssocEcalTowers.ProduceCount = false
+
+module muIsolationSumAssocHcalTowers = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muIsolationSumAssocHcalTowers.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalByAssociatorTowers:hcal
+double DepositWeight = 1.
+double DepositThreshold = 0.
+} }
+replace muIsolationSumAssocHcalTowers.ProduceCount = false
+
+module muIsolationSumAssocHOTowers = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muIsolationSumAssocHOTowers.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalByAssociatorTowers:ho
+double DepositWeight = 1.
+double DepositThreshold = 0.
+} }
+replace muIsolationSumAssocHOTowers.ProduceCount = false
+
+module muIsolationSumAssocEcalHits = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muIsolationSumAssocEcalHits.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalByAssociatorHits:ecal
+double DepositWeight = 1.
+double DepositThreshold = 0.
+} }
+replace muIsolationSumAssocEcalHits.ProduceCount = false
+
+module muIsolationSumAssocHcalHits = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muIsolationSumAssocHcalHits.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalByAssociatorHits:hcal
+double DepositWeight = 1.
+double DepositThreshold = 0.
+} }
+replace muIsolationSumAssocHcalHits.ProduceCount = false
+
+module muIsolationSumAssocHOHits = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muIsolationSumAssocHOHits.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalByAssociatorHits:ho
+double DepositWeight = 1.
+double DepositThreshold = 0.
+} }
+replace muIsolationSumAssocHOHits.ProduceCount = false
+
+
+include "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+include "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracksMuVetoed.cfi"
+sequence muIsolationSumsTk = {
+  muIsolationSumInConesTracks & muIsolationSumInConesTracksMuVetoed
+}
+
+sequence muIsolationSumsCal = {
+  muIsolationSumCalEcal & muIsolationSumCalHcal
+}
+
+sequence muIsolationSumsAssocTowers = {
+  muIsolationSumAssocEcalTowers & muIsolationSumAssocHcalTowers & muIsolationSumAssocHOTowers
+}
+
+sequence muIsolationSumsAssocHits = {
+  muIsolationSumAssocEcalHits & muIsolationSumAssocHcalHits & muIsolationSumAssocHOHits
+}
+
+sequence muIsolationSumsAssocAll = { 
+  muIsolationSumsAssocTowers & muIsolationSumsAssocHits 
+}
+
+sequence muIsolationSumsAll = {
+  muIsolationSumsTk & muIsolationSumsCal & muIsolationSumsAssocAll
+}
