@@ -1,0 +1,28 @@
+include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
+include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cfi"
+sequence muIsoDepositsAssoc = {
+  muIsoDepositCalByAssociatorTowers & muIsoDepositCalByAssociatorHits
+}
+
+module muIsoDepositCalEcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
+replace muIsoDepositCalEcal.ExtractorPSet.Weight_E = 1
+replace muIsoDepositCalEcal.ExtractorPSet.Weight_H = 0
+
+module muIsoDepositCalHcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
+replace muIsoDepositCalHcal.ExtractorPSet.Weight_E = 0
+replace muIsoDepositCalHcal.ExtractorPSet.Weight_H = 1
+
+sequence muIsoDepositsCal = {
+  muIsoDepositCalEcal & muIsoDepositCalHcal
+}
+
+include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
+#one module for now
+sequence muIsoDepositsTk = {
+  muIsoDepositCtfTk
+}
+
+
+sequence muIsoDepositsAll = {
+  muIsoDepositCtfTk & muIsoDepositsAssoc & muIsoDepositsCal
+}
