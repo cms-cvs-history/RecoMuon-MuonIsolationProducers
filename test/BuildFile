@@ -6,9 +6,9 @@
 <use name=root>
 
 <library file="IsolationExample.cc" name=IsolationExample>
-  <flags SEAL_PLUGIN_NAME="IsolationExample">
+  <flags EDM_PLUGIN=1>
 </library>
 <library file="MuIsoDepositAnalyzer.cc" name=MuIsoDepositAnalyzer>
-  <flags SEAL_PLUGIN_NAME="MuIsoDepositAnalyzer">
+  <flags EDM_PLUGIN=1>
 </library>
 
