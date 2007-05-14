@@ -1,0 +1,27 @@
+#seqs/mods to make MuIsoDeposits
+include "RecoMuon/MuonIsolationProducers/data/muIsoDeposits.cff"
+
+#seqs/mods to make sums (cones 0.2, 0.3, 0.4, 0.7)
+include "RecoMuon/MuonIsolationProducers/data/muIsolationSumInCones.cff"
+
+#sequence for tracks
+sequence muIsolationTk = { muIsoDepositsTk , muIsolationSumsTk }
+
+#sequence for tower-based iso using associator
+sequence muIsolationAssocTowers = { muIsoDepositCalByAssociatorTowers , muIsolationSumsAssocTowers }
+
+#sequence for hit-based iso using associator
+sequence muIsolationAssocHits = { muIsoDepositCalByAssociatorHits , muIsolationSumsAssocHits }
+
+#sequence for (tower-based) iso using CaloExtractor (fast)
+sequence muIsolationCal = { muIsoDepositsCal , muIsolationSumsCal }
+
+
+# full suggested isolation seq to be used in standard reco
+sequence muIsolation = { muIsoDepositsTk & muIsolationAssocTowers }
+
+#will run all available/configured iso algorithms
+sequence muIsolationAll = { muIsoDepositsAll, muIsolationSumsAll }
+
+#include tracker, CaloExtractor (fast), Associator not included
+sequence muIsolationFast = { muIsoDepositsTk & muIsolationCal }
