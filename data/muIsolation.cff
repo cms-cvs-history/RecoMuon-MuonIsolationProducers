@@ -18,10 +18,10 @@ sequence muIsolationCal = { muIsoDepositsCal , muIsolationSumsCal }
 
 
 # full suggested isolation seq to be used in standard reco
-sequence muIsolation = { muIsoDepositsTk & muIsolationAssocTowers }
+sequence muIsolation = { muIsolationTk & muIsolationAssocTowers }
 
 #will run all available/configured iso algorithms
 sequence muIsolationAll = { muIsoDepositsAll, muIsolationSumsAll }
 
 #include tracker, CaloExtractor (fast), Associator not included
-sequence muIsolationFast = { muIsoDepositsTk & muIsolationCal }
+sequence muIsolationFast = { muIsolationTk & muIsolationCal }
