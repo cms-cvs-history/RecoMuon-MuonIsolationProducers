@@ -18,6 +18,9 @@ module muIsoDepositJets = MuIsoDepositProducer {
     double DR_Veto = 0.1
     double DR_Max = 1.0
 
+#subtract sumEt of towers falling into the muon-veto region
+    bool ExcludeMuonVeto = true
+
 #count a jet if et> threshold
 #note: et from crossed towers and jet towers inside the veto cone are not counted
     double Threshold = 5
