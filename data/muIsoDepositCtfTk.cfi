@@ -1,4 +1,7 @@
 module muIsoDepositCtfTk = MuIsoDepositProducer {
+  bool ReadFromRecoMuonCollection = false
+  string MuonTrackRefType = "combinedMuon"
+
   InputTag inputMuonCollection = globalMuons
   bool MultipleDepositsFlag = false
   PSet ExtractorPSet = 

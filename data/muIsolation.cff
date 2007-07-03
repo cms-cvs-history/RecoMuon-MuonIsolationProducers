@@ -4,24 +4,37 @@ include "RecoMuon/MuonIsolationProducers/data/muIsoDeposits.cff"
 #seqs/mods to make sums (cones 0.2, 0.3, 0.4, 0.7)
 include "RecoMuon/MuonIsolationProducers/data/muIsolationSumInCones.cff"
 
-#sequence for tracks
-sequence muIsolationTk = { muIsoDepositsTk , muIsolationSumsTk }
+#sequence for tracks (global and tracker muons separately)
+#the first one is for bkw compatibility (or to make more confusion ?) -- for globalMuons
+sequence muIsolationTk_globalMuons  = { muIsoDepositsTk_globalMuons  , muIsolationSumsTk_globalMuons }
+sequence muIsolationTk_trackerMuons = { muIsoDepositsTk_trackerMuons , muIsolationSumsTk_trackerMuons }
+sequence muIsolationTk = { muIsolationTk_globalMuons & muIsolationTk_trackerMuons }
 
 #sequence for tower-based iso using associator
-sequence muIsolationAssocTowers = { muIsoDepositCalByAssociatorTowers , muIsolationSumsAssocTowers }
+sequence muIsolationAssocTowers_globalMuons  = { muGlobalIsoDepositCalByAssociatorTowers , muIsolationSumsAssocTowers_globalMuons }
+sequence muIsolationAssocTowers_trackerMuons = { muTrackerIsoDepositCalByAssociatorTowers , muIsolationSumsAssocTowers_trackerMuons }
+sequence muIsolationAssocTowers = { muIsolationAssocTowers_globalMuons & muIsolationAssocTowers_trackerMuons }
 
 #sequence for hit-based iso using associator
-sequence muIsolationAssocHits = { muIsoDepositCalByAssociatorHits , muIsolationSumsAssocHits }
+sequence muIsolationAssocHits_globalMuons  = { muGlobalIsoDepositCalByAssociatorHits , muIsolationSumsAssocHits_globalMuons }
+sequence muIsolationAssocHits_trackerMuons = { muTrackerIsoDepositCalByAssociatorHits , muIsolationSumsAssocHits_trackerMuons }
+sequence muIsolationAssocHits = { muIsolationAssocHits_globalMuons & muIsolationAssocHits_trackerMuons }
 
 #sequence for (tower-based) iso using CaloExtractor (fast)
-sequence muIsolationCal = { muIsoDepositsCal , muIsolationSumsCal }
+sequence muIsolationCal_globalMuons  = { muIsoDepositsCal_globalMuons  , muIsolationSumsCal_globalMuons }
+sequence muIsolationCal_trackerMuons = { muIsoDepositsCal_trackerMuons , muIsolationSumsCal_trackerMuons }
+sequence muIsolationCal = { muIsolationCal_globalMuons & muIsolationCal_trackerMuons }
 
+#sequence for jet-based iso
+sequence muIsolationJets_globalMuons = { muIsoDepositsJets_globalMuons , muIsolationSumsJets_globalMuons }
+sequence muIsolationJets_trackerMuons = { muIsoDepositsJets_trackerMuons , muIsolationSumsJets_trackerMuons }
+sequence muIsolationJets = { muIsolationJets_globalMuons & muIsolationJets_trackerMuons }
 
-# full suggested isolation seq to be used in standard reco
-sequence muIsolation = { muIsolationTk & muIsolationAssocTowers }
+# full suggested isolation seq to be used in standard reco (globalMuons and trackerMuons only)
+#and then both combined
+sequence muIsolation_globalMuons = { muIsolationTk_globalMuons & muIsolationAssocTowers_globalMuons & muIsolationJets_globalMuons}
+sequence muIsolation_trackerMuons = { muIsolationTk_trackerMuons & muIsolationAssocTowers_trackerMuons & muIsolationJets_trackerMuons}
+sequence muIsolation = { muIsolation_globalMuons & muIsolation_trackerMuons }
 
 #will run all available/configured iso algorithms
-sequence muIsolationAll = { muIsoDepositsAll, muIsolationSumsAll }
-
-#include tracker, CaloExtractor (fast), Associator not included
-sequence muIsolationFast = { muIsolationTk & muIsolationCal }
+sequence muIsolationAll = { muIsolationTk & muIsolationAssocTowers & muIsolationAssocHits & muIsolationCal & muIsolationJets}

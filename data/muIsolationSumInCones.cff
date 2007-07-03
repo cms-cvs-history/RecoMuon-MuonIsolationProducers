@@ -1,82 +1,283 @@
-module muIsolationSumCalEcal = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
-replace muIsolationSumCalEcal.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalEcal
-double DepositWeight = 1.
-double DepositThreshold = 0.
+module muGlobalIsolationSumCalEcal 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muGlobalIsolationSumCalEcal.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muGlobalIsoDepositCalEcal
+        double DepositWeight = 1.
+        double DepositThreshold = 0.
 } }
-replace muIsolationSumCalEcal.ProduceCount = false
+replace muGlobalIsolationSumCalEcal.ProduceCount = false
 
-module muIsolationSumCalHcal = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
-replace muIsolationSumCalHcal.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalHcal
-double DepositWeight = 1.
-double DepositThreshold = 0.
+module muGlobalIsolationSumCalHcal 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muGlobalIsolationSumCalHcal.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muGlobalIsoDepositCalHcal
+        double DepositWeight = 1.
+        double DepositThreshold = 0.
 } }
-replace muIsolationSumCalHcal.ProduceCount = false
+replace muGlobalIsolationSumCalHcal.ProduceCount = false
 
-module muIsolationSumAssocEcalTowers = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
-replace muIsolationSumAssocEcalTowers.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalByAssociatorTowers:ecal
-double DepositWeight = 1.
-double DepositThreshold = 0.
+module muGlobalIsolationSumAssocEcalTowers 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muGlobalIsolationSumAssocEcalTowers.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muGlobalIsoDepositCalByAssociatorTowers:ecal
+        double DepositWeight = 1.
+        double DepositThreshold = 0.
 } }
-replace muIsolationSumAssocEcalTowers.ProduceCount = false
+replace muGlobalIsolationSumAssocEcalTowers.ProduceCount = false
 
-module muIsolationSumAssocHcalTowers = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
-replace muIsolationSumAssocHcalTowers.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalByAssociatorTowers:hcal
-double DepositWeight = 1.
-double DepositThreshold = 0.
+module muGlobalIsolationSumAssocHcalTowers 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muGlobalIsolationSumAssocHcalTowers.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muGlobalIsoDepositCalByAssociatorTowers:hcal
+        double DepositWeight = 1.
+        double DepositThreshold = 0.
 } }
-replace muIsolationSumAssocHcalTowers.ProduceCount = false
+replace muGlobalIsolationSumAssocHcalTowers.ProduceCount = false
 
-module muIsolationSumAssocHOTowers = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
-replace muIsolationSumAssocHOTowers.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalByAssociatorTowers:ho
-double DepositWeight = 1.
-double DepositThreshold = 0.
+module muGlobalIsolationSumAssocHOTowers 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muGlobalIsolationSumAssocHOTowers.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muGlobalIsoDepositCalByAssociatorTowers:ho
+        double DepositWeight = 1.
+        double DepositThreshold = 0.
 } }
-replace muIsolationSumAssocHOTowers.ProduceCount = false
+replace muGlobalIsolationSumAssocHOTowers.ProduceCount = false
 
-module muIsolationSumAssocEcalHits = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
-replace muIsolationSumAssocEcalHits.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalByAssociatorHits:ecal
-double DepositWeight = 1.
-double DepositThreshold = 0.
+module muGlobalIsolationSumAssocEcalHits 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muGlobalIsolationSumAssocEcalHits.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muGlobalIsoDepositCalByAssociatorHits:ecal
+        double DepositWeight = 1.
+        double DepositThreshold = 0.
 } }
-replace muIsolationSumAssocEcalHits.ProduceCount = false
+replace muGlobalIsolationSumAssocEcalHits.ProduceCount = false
 
-module muIsolationSumAssocHcalHits = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
-replace muIsolationSumAssocHcalHits.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalByAssociatorHits:hcal
-double DepositWeight = 1.
-double DepositThreshold = 0.
+module muGlobalIsolationSumAssocHcalHits 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muGlobalIsolationSumAssocHcalHits.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muGlobalIsoDepositCalByAssociatorHits:hcal
+        double DepositWeight = 1.
+        double DepositThreshold = 0.
 } }
-replace muIsolationSumAssocHcalHits.ProduceCount = false
+replace muGlobalIsolationSumAssocHcalHits.ProduceCount = false
 
-module muIsolationSumAssocHOHits = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
-replace muIsolationSumAssocHOHits.InputMuIsoDeposits = { { InputTag DepositTag = muIsoDepositCalByAssociatorHits:ho
-double DepositWeight = 1.
-double DepositThreshold = 0.
+module muGlobalIsolationSumAssocHOHits 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muGlobalIsolationSumAssocHOHits.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muGlobalIsoDepositCalByAssociatorHits:ho
+        double DepositWeight = 1.
+        double DepositThreshold = 0.
 } }
-replace muIsolationSumAssocHOHits.ProduceCount = false
+replace muGlobalIsolationSumAssocHOHits.ProduceCount = false
 
+#########################################################################################################
+# now the same but for trackerMuons
+#########################################################################################################
+
+module muTrackerIsolationSumCalEcal 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muTrackerIsolationSumCalEcal.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muTrackerIsoDepositCalEcal
+        double DepositWeight = 1.
+        double DepositThreshold = 0.
+} }
+replace muTrackerIsolationSumCalEcal.ProduceCount = false
+
+module muTrackerIsolationSumCalHcal 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muTrackerIsolationSumCalHcal.InputMuIsoDeposits = { { 
+       InputTag DepositTag = muTrackerIsoDepositCalHcal
+       double DepositWeight = 1.
+       double DepositThreshold = 0.
+} }
+replace muTrackerIsolationSumCalHcal.ProduceCount = false
+
+module muTrackerIsolationSumAssocEcalTowers 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muTrackerIsolationSumAssocEcalTowers.InputMuIsoDeposits = { { 
+       InputTag DepositTag = muTrackerIsoDepositCalByAssociatorTowers:ecal
+       double DepositWeight = 1.
+       double DepositThreshold = 0.
+} }
+replace muTrackerIsolationSumAssocEcalTowers.ProduceCount = false
+
+module muTrackerIsolationSumAssocHcalTowers 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muTrackerIsolationSumAssocHcalTowers.InputMuIsoDeposits = { { 
+       InputTag DepositTag = muTrackerIsoDepositCalByAssociatorTowers:hcal
+       double DepositWeight = 1.
+       double DepositThreshold = 0.
+} }
+replace muTrackerIsolationSumAssocHcalTowers.ProduceCount = false
+
+module muTrackerIsolationSumAssocHOTowers 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muTrackerIsolationSumAssocHOTowers.InputMuIsoDeposits = { { 
+       InputTag DepositTag = muTrackerIsoDepositCalByAssociatorTowers:ho
+       double DepositWeight = 1.
+       double DepositThreshold = 0.
+} }
+replace muTrackerIsolationSumAssocHOTowers.ProduceCount = false
+
+module muTrackerIsolationSumAssocEcalHits 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muTrackerIsolationSumAssocEcalHits.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muTrackerIsoDepositCalByAssociatorHits:ecal
+        double DepositWeight = 1.
+        double DepositThreshold = 0.
+} }
+replace muTrackerIsolationSumAssocEcalHits.ProduceCount = false
+
+module muTrackerIsolationSumAssocHcalHits 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muTrackerIsolationSumAssocHcalHits.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muTrackerIsoDepositCalByAssociatorHits:hcal
+        double DepositWeight = 1.
+        double DepositThreshold = 0.
+} }
+replace muTrackerIsolationSumAssocHcalHits.ProduceCount = false
+
+module muTrackerIsolationSumAssocHOHits 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muTrackerIsolationSumAssocHOHits.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muTrackerIsoDepositCalByAssociatorHits:ho
+        double DepositWeight = 1.
+        double DepositThreshold = 0.
+} }
+replace muTrackerIsolationSumAssocHOHits.ProduceCount = false
+
+
+################################################################################################
 
 include "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
 include "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracksMuVetoed.cfi"
-sequence muIsolationSumsTk = {
-  muIsolationSumInConesTracks & muIsolationSumInConesTracksMuVetoed
+
+#separate instances with clear names for global and tracker muons
+module muGlobalIsolationSumInConesTracks 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muGlobalIsolationSumInConesTracks.InputMuIsoDeposits = {{ 
+        InputTag DepositTag = muGlobalIsoDepositCtfTk
+        double DepositWeight = 1.
+        double DepositThreshold = 1.5
+}}
+
+module muGlobalIsolationSumInConesTracksMuVetoed
+       = muIsolationSumInConesTracksMuVetoed from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracksMuVetoed.cfi"
+replace muGlobalIsolationSumInConesTracksMuVetoed.InputMuIsoDeposits = {{ 
+        InputTag DepositTag = muGlobalIsoDepositCtfTk
+        double DepositWeight = 1.
+        double DepositThreshold = 1.5
+}}
+
+
+module muTrackerIsolationSumInConesTracks 
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muTrackerIsolationSumInConesTracks.InputMuIsoDeposits = {{ 
+        InputTag DepositTag = muTrackerIsoDepositCtfTk
+        double DepositWeight = 1.
+        double DepositThreshold = 1.5
+}}
+
+module muTrackerIsolationSumInConesTracksMuVetoed
+       = muIsolationSumInConesTracksMuVetoed from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracksMuVetoed.cfi"
+replace muTrackerIsolationSumInConesTracksMuVetoed.InputMuIsoDeposits = {{ 
+        InputTag DepositTag = muTrackerIsoDepositCtfTk
+        double DepositWeight = 1.
+        double DepositThreshold = 1.5
+}}
+
+####################################################################################
+module muGlobalIsolationSumInConesJets
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muGlobalIsolationSumInConesJets.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muGlobalIsoDepositJets
+        double DepositWeight = 1.
+        double DepositThreshold = 15.
+} }
+replace muGlobalIsolationSumInConesJets.ConeSizes = {
+      { 
+        double ConeSize = 0.4
+        string ConeSizeName = "cone04"
+      },
+      { 
+        double ConeSize = 0.7
+        string ConeSizeName = "cone07"
+      },
+      { 
+        double ConeSize = 1.0
+        string ConeSizeName = "cone1"
+      }
+}
+replace muGlobalIsolationSumInConesJets.ProduceCount = true
+
+module muTrackerIsolationSumInConesJets
+       = muIsolationSumInConesTracks from "RecoMuon/MuonIsolationProducers/data/muIsolationSumInConesTracks.cfi"
+replace muTrackerIsolationSumInConesJets.InputMuIsoDeposits = { { 
+        InputTag DepositTag = muTrackerIsoDepositJets
+        double DepositWeight = 1.
+        double DepositThreshold = 15.
+} }
+replace muTrackerIsolationSumInConesJets.ConeSizes = {
+      { 
+        double ConeSize = 0.4
+        string ConeSizeName = "cone04"
+      },
+      { 
+        double ConeSize = 0.7
+        string ConeSizeName = "cone07"
+      },
+      { 
+        double ConeSize = 1.0
+        string ConeSizeName = "cone1"
+      }
+}
+replace muTrackerIsolationSumInConesJets.ProduceCount = true
+
+
+####################################################################################
+
+#######################################################################
+# now make sequences for easier access to a combination of modules
+#######################################################################
+
+
+#tk-based separately named for global and tracker muons
+sequence muIsolationSumsTk_globalMuons = {
+  muGlobalIsolationSumInConesTracks & muGlobalIsolationSumInConesTracksMuVetoed
+}
+sequence muIsolationSumsTk_trackerMuons = {
+  muTrackerIsolationSumInConesTracks & muTrackerIsolationSumInConesTracksMuVetoed
 }
 
-sequence muIsolationSumsCal = {
-  muIsolationSumCalEcal & muIsolationSumCalHcal
+#calExtractor-based 
+sequence muIsolationSumsCal_globalMuons = {
+  muGlobalIsolationSumCalEcal & muGlobalIsolationSumCalHcal
+}
+sequence muIsolationSumsCal_trackerMuons = {
+  muTrackerIsolationSumCalEcal & muTrackerIsolationSumCalHcal
 }
 
-sequence muIsolationSumsAssocTowers = {
-  muIsolationSumAssocEcalTowers & muIsolationSumAssocHcalTowers & muIsolationSumAssocHOTowers
+#CalExtractorByAssociator-based for towers
+sequence muIsolationSumsAssocTowers_globalMuons = {
+  muGlobalIsolationSumAssocEcalTowers & muGlobalIsolationSumAssocHcalTowers & muGlobalIsolationSumAssocHOTowers
+}
+sequence muIsolationSumsAssocTowers_trackerMuons = {
+  muTrackerIsolationSumAssocEcalTowers & muTrackerIsolationSumAssocHcalTowers & muTrackerIsolationSumAssocHOTowers
 }
 
-sequence muIsolationSumsAssocHits = {
-  muIsolationSumAssocEcalHits & muIsolationSumAssocHcalHits & muIsolationSumAssocHOHits
+#CalExtractorByAssociator-based for hits
+sequence muIsolationSumsAssocHits_globalMuons = {
+  muGlobalIsolationSumAssocEcalHits & muGlobalIsolationSumAssocHcalHits & muGlobalIsolationSumAssocHOHits
+}
+sequence muIsolationSumsAssocHits_trackerMuons = {
+  muTrackerIsolationSumAssocEcalHits & muTrackerIsolationSumAssocHcalHits & muTrackerIsolationSumAssocHOHits
 }
 
-sequence muIsolationSumsAssocAll = { 
-  muIsolationSumsAssocTowers & muIsolationSumsAssocHits 
+#jet-based iso info
+sequence muIsolationSumsJets_globalMuons = {
+  muGlobalIsolationSumInConesJets
 }
 
-sequence muIsolationSumsAll = {
-  muIsolationSumsTk & muIsolationSumsCal & muIsolationSumsAssocAll
+sequence muIsolationSumsJets_trackerMuons = {
+  muTrackerIsolationSumInConesJets
 }
