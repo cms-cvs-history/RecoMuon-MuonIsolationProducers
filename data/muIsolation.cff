@@ -30,11 +30,22 @@ sequence muIsolationJets_globalMuons = { muIsoDepositsJets_globalMuons , muIsola
 sequence muIsolationJets_trackerMuons = { muIsoDepositsJets_trackerMuons , muIsolationSumsJets_trackerMuons }
 sequence muIsolationJets = { muIsolationJets_globalMuons & muIsolationJets_trackerMuons }
 
-# full suggested isolation seq to be used in standard reco (globalMuons and trackerMuons only)
+# full isolation seq including isolation sums (globalMuons and trackerMuons only)
 #and then both combined
-sequence muIsolation_globalMuons = { muIsolationTk_globalMuons & muIsolationAssocTowers_globalMuons & muIsolationJets_globalMuons}
-sequence muIsolation_trackerMuons = { muIsolationTk_trackerMuons & muIsolationAssocTowers_trackerMuons & muIsolationJets_trackerMuons}
+sequence muIsolationWithSums_globalMuons = { muIsolationTk_globalMuons & muIsolationAssocTowers_globalMuons & muIsolationJets_globalMuons}
+sequence muIsolationWithSums_trackerMuons = { muIsolationTk_trackerMuons & muIsolationAssocTowers_trackerMuons & muIsolationJets_trackerMuons}
+sequence muIsolationWithSums = { muIsolation_globalMuons & muIsolation_trackerMuons }
+
+#  sequences suggested for reco (only isoDeposits are produced at this point)
+sequence muIsolation_globalMuons = { muIsoDeposits_globalMuons }
+sequence muIsolation_trackerMuons = { muIsoDeposits_trackerMuons }
 sequence muIsolation = { muIsolation_globalMuons & muIsolation_trackerMuons }
+
+# run these to get the isolation sums in pre-configured cones of 0.2, 0.3, 0.4, 0.7 (see .cfi's to be sure)
+sequence muIsolationSums_globalMuons = { muIsolationSumsTk_globalMuons & muIsolationSumsAssocTowers_globalMuons & muIsolationSumsJets_globalMuons }
+sequence muIsolationSums_trackerMuons = { muIsolationSumsTk_trackerMuons & muIsolationSumsAssocTowers_trackerMuons & muIsolationSumsJets_trackerMuons }
+sequence muIsolationSums = { muIsolationSums_globalMuons & muIsolationSums_trackerMuons }
+
 
 #will run all available/configured iso algorithms
 sequence muIsolationAll = { muIsolationTk & muIsolationAssocTowers & muIsolationAssocHits & muIsolationCal & muIsolationJets}

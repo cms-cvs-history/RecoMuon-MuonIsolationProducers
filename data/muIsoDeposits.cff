@@ -226,9 +226,9 @@ sequence muIsoDepositsTk_trackerMuons = {
 #------------------------------
 # "standard sequences"
 sequence muIsoDeposits_globalMuons = {
-  muIsoDepositsTk_globalMuons & muGlobalIsoDepositCalByAssociatorTowers
+  muIsoDepositsTk_globalMuons & muGlobalIsoDepositCalByAssociatorTowers & muIsoDepositsJets_globalMuons
 }
 
 sequence muIsoDeposits_trackerMuons = {
-  muTrackerIsoDepositCtfTk & muTrackerIsoDepositCalByAssociatorTowers
+  muTrackerIsoDepositCtfTk & muTrackerIsoDepositCalByAssociatorTowers & muIsoDepositsJets_trackerMuons
 }
