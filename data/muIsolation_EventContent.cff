@@ -86,26 +86,16 @@ block RecoMuonIsolationRECO = {
 }
 
 #AOD part of the event
+#cleaned-up, includes only the objects produced in the standard reco "muIsolation" sequence
 block RecoMuonIsolationAOD = {
   untracked vstring outputCommands = {
-#MuIsolationSums
-    "keep *_muGlobalIsolationSumInConesTracks_*_*",
-    "keep *_muGlobalIsolationSumInConesTracksMuVetoed_*_*",
-#    "keep *_muGlobalIsolationSumCalEcal_*_*",
-#    "keep *_muGlobalIsolationSumCalHcal_*_*",
-    "keep *_muGlobalIsolationSumAssocEcalTowers_*_*",
-    "keep *_muGlobalIsolationSumAssocHcalTowers_*_*",
-    "keep *_muGlobalIsolationSumAssocHOTowers_*_*",
-    "keep *_muGlobalIsolationSumInConesJets_*_*",
-    "keep *_muTrackerIsolationSumInConesTracks_*_*",
-    "keep *_muTrackerIsolationSumInConesTracksMuVetoed_*_*",
-#    "keep *_muTrackerIsolationSumCalEcal_*_*",
-#    "keep *_muTrackerIsolationSumCalHcal_*_*",
-    "keep *_muTrackerIsolationSumAssocEcalTowers_*_*",
-    "keep *_muTrackerIsolationSumAssocHcalTowers_*_*",
-    "keep *_muTrackerIsolationSumAssocHOTowers_*_*",
-    "keep *_muTrackerIsolationSumInConesJets_*_*"
-
+#MuIsoDeposits
+    "keep *_muGlobalIsoDepositCtfTk_*_*",
+    "keep *_muGlobalIsoDepositCalByAssociatorTowers_*_*",
+    "keep *_muGlobalIsoDepositJets_*_*",
+    "keep *_muTrackerIsoDepositCtfTk_*_*",
+    "keep *_muTrackerIsoDepositCalByAssociatorTowers_*_*",
+    "keep *_muTrackerIsoDepositJets_*_*"
   }
 }
 
