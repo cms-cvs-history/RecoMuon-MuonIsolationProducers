@@ -99,3 +99,27 @@ block RecoMuonIsolationAOD = {
   }
 }
 
+#Full event
+block RecoMuonIsolationFAMOS = {
+  untracked vstring outputCommands = {
+#MuIsoDeposits
+    "keep *_muParamGlobalIsoDepositCtfTk_*_*",
+    "keep *_muParamGlobalIsoDepositCalEcal_*_*",
+    "keep *_muParamGlobalIsoDepositCalHcal_*_*",
+    "keep *_muParamGlobalIsoDepositCalByAssociatorTowers_*_*",
+    "keep *_muParamGlobalIsoDepositCalByAssociatorHits_*_*",
+    "keep *_muParamGlobalIsoDepositJets_*_*",
+#MuIsolationSums
+    "keep *_muParamGlobalIsolationSumInConesTracks_*_*",
+    "keep *_muParamGlobalIsolationSumInConesTracksMuVetoed_*_*",
+    "keep *_muParamGlobalIsolationSumCalEcal_*_*",
+    "keep *_muParamGlobalIsolationSumCalHcal_*_*",
+    "keep *_muParamGlobalIsolationSumAssocEcalTowers_*_*",
+    "keep *_muParamGlobalIsolationSumAssocHcalTowers_*_*",
+    "keep *_muParamGlobalIsolationSumAssocHOTowers_*_*",
+    "keep *_muParamGlobalIsolationSumAssocEcalHits_*_*",
+    "keep *_muParamGlobalIsolationSumAssocHcalHits_*_*",
+    "keep *_muParamGlobalIsolationSumAssocHOHits_*_*",
+    "keep *_muParamGlobalIsolationSumInConesJets_*_*"
+  }
+}

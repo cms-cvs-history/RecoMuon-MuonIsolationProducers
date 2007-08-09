@@ -15,6 +15,13 @@ include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cf
 module muGlobalIsoDepositCtfTk 
        = muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
 
+module muParamGlobalIsoDepositCtfTk 
+       = muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
+replace muParamGlobalIsoDepositCtfTk.ReadFromRecoMuonCollection = true
+replace muParamGlobalIsoDepositCtfTk.MuonTrackRefType = "track" 
+replace muParamGlobalIsoDepositCtfTk.inputMuonCollection = paramMuons:ParamGlobalMuons
+replace muParamGlobalIsoDepositCtfTk.ExtractorPSet.inputTrackCollection = gsWithMaterialTracks
+
 module muTrackerIsoDepositCtfTk 
        = muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
 replace muTrackerIsoDepositCtfTk.ReadFromRecoMuonCollection = true
@@ -164,6 +171,15 @@ replace muGlobalIsoDepositCalEcal.ExtractorPSet.Weight_E = 1
 replace muGlobalIsoDepositCalEcal.ExtractorPSet.Weight_H = 0
 
 
+#the same but for FastSim muons
+module muParamGlobalIsoDepositCalEcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
+replace muParamGlobalIsoDepositCalEcal.ExtractorPSet.Weight_E = 1
+replace muParamGlobalIsoDepositCalEcal.ExtractorPSet.Weight_H = 0
+replace muParamGlobalIsoDepositCalEcal.ReadFromRecoMuonCollection = true
+replace muParamGlobalIsoDepositCalEcal.MuonTrackRefType = "track"       
+replace muParamGlobalIsoDepositCalEcal.inputMuonCollection = paramMuons:ParamGlobalMuons
+replace muParamGlobalIsoDepositCalEcal.ExtractorPSet.CaloTowerCollectionLabel = towerMaker
+
 #the same but for tracker muons
 module muTrackerIsoDepositCalEcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
 replace muTrackerIsoDepositCalEcal.ExtractorPSet.Weight_E = 1
@@ -176,6 +192,15 @@ replace muTrackerIsoDepositCalEcal.inputMuonCollection = trackerMuons
 module muGlobalIsoDepositCalHcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
 replace muGlobalIsoDepositCalHcal.ExtractorPSet.Weight_E = 0
 replace muGlobalIsoDepositCalHcal.ExtractorPSet.Weight_H = 1
+
+#the same, but for FastSim muons
+module muParamGlobalIsoDepositCalHcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
+replace muParamGlobalIsoDepositCalHcal.ExtractorPSet.Weight_E = 0
+replace muParamGlobalIsoDepositCalHcal.ExtractorPSet.Weight_H = 1
+replace muParamGlobalIsoDepositCalHcal.ReadFromRecoMuonCollection = true
+replace muParamGlobalIsoDepositCalHcal.MuonTrackRefType = "track"       
+replace muParamGlobalIsoDepositCalHcal.inputMuonCollection = paramMuons:ParamGlobalMuons
+replace muParamGlobalIsoDepositCalHcal.ExtractorPSet.CaloTowerCollectionLabel = towerMaker
 
 #the same, but for tracker muons
 module muTrackerIsoDepositCalHcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
@@ -201,6 +226,9 @@ sequence muIsoDepositsAssoc_trackerMuons = {
 sequence muIsoDepositsCal_globalMuons = {
   muGlobalIsoDepositCalEcal & muGlobalIsoDepositCalHcal
 }
+sequence muIsoDepositsCal_ParamGlobalMuons = {
+  muParamGlobalIsoDepositCalEcal & muParamGlobalIsoDepositCalHcal
+}
 sequence muIsoDepositsCal_trackerMuons = {
   muTrackerIsoDepositCalEcal & muTrackerIsoDepositCalHcal
 }
@@ -219,6 +247,9 @@ sequence muIsoDepositsJets_trackerMuons = {
 sequence muIsoDepositsTk_globalMuons = {
   muGlobalIsoDepositCtfTk
 }
+sequence muIsoDepositsTk_ParamGlobalMuons = {
+  muParamGlobalIsoDepositCtfTk
+}
 sequence muIsoDepositsTk_trackerMuons = {
   muTrackerIsoDepositCtfTk
 }
@@ -227,6 +258,10 @@ sequence muIsoDepositsTk_trackerMuons = {
 # "standard sequences"
 sequence muIsoDeposits_globalMuons = {
   muIsoDepositsTk_globalMuons & muGlobalIsoDepositCalByAssociatorTowers & muIsoDepositsJets_globalMuons
+}
+
+sequence muIsoDeposits_ParamGlobalMuons = {
+  muIsoDepositsTk_ParamGlobalMuons & muIsoDepositsCal_ParamGlobalMuons
 }
 
 sequence muIsoDeposits_trackerMuons = {
