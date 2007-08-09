@@ -15,12 +15,12 @@ include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cf
 module muGlobalIsoDepositCtfTk 
        = muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
 
-module muParamGlobalIsoDepositCtfTk 
+module muParamGlobalIsoDepositGsTk 
        = muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
-replace muParamGlobalIsoDepositCtfTk.ReadFromRecoMuonCollection = true
-replace muParamGlobalIsoDepositCtfTk.MuonTrackRefType = "track" 
-replace muParamGlobalIsoDepositCtfTk.inputMuonCollection = paramMuons:ParamGlobalMuons
-replace muParamGlobalIsoDepositCtfTk.ExtractorPSet.inputTrackCollection = gsWithMaterialTracks
+replace muParamGlobalIsoDepositGsTk.ReadFromRecoMuonCollection = true
+replace muParamGlobalIsoDepositGsTk.MuonTrackRefType = "track" 
+replace muParamGlobalIsoDepositGsTk.inputMuonCollection = paramMuons:ParamGlobalMuons
+replace muParamGlobalIsoDepositGsTk.ExtractorPSet.inputTrackCollection = gsWithMaterialTracks
 
 module muTrackerIsoDepositCtfTk 
        = muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
@@ -248,7 +248,7 @@ sequence muIsoDepositsTk_globalMuons = {
   muGlobalIsoDepositCtfTk
 }
 sequence muIsoDepositsTk_ParamGlobalMuons = {
-  muParamGlobalIsoDepositCtfTk
+  muParamGlobalIsoDepositGsTk
 }
 sequence muIsoDepositsTk_trackerMuons = {
   muTrackerIsoDepositCtfTk

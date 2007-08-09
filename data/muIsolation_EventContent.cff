@@ -103,7 +103,7 @@ block RecoMuonIsolationAOD = {
 block RecoMuonIsolationFAMOS = {
   untracked vstring outputCommands = {
 #MuIsoDeposits
-    "keep *_muParamGlobalIsoDepositCtfTk_*_*",
+    "keep *_muParamGlobalIsoDepositGsTk_*_*",
     "keep *_muParamGlobalIsoDepositCalEcal_*_*",
     "keep *_muParamGlobalIsoDepositCalHcal_*_*",
     "keep *_muParamGlobalIsoDepositCalByAssociatorTowers_*_*",
