@@ -7,7 +7,8 @@ include "RecoMuon/MuonIsolationProducers/data/muIsolationSumInCones.cff"
 #sequence for tracks (global and tracker muons separately)
 #the first one is for bkw compatibility (or to make more confusion ?) -- for globalMuons
 sequence muIsolationTk_globalMuons  = { muIsoDepositsTk_globalMuons  , muIsolationSumsTk_globalMuons }
-sequence muIsolationTk_ParamGlobalMuons  = { muIsoDepositsTk_ParamGlobalMuons  , muIsolationSumsTk_ParamGlobalMuons }
+#sums not included
+sequence muIsolationTk_ParamGlobalMuons  = { muIsoDepositsTk_ParamGlobalMuons }
 sequence muIsolationTk_trackerMuons = { muIsoDepositsTk_trackerMuons , muIsolationSumsTk_trackerMuons }
 sequence muIsolationTk = { muIsolationTk_globalMuons & muIsolationTk_trackerMuons }
 
@@ -23,7 +24,8 @@ sequence muIsolationAssocHits = { muIsolationAssocHits_globalMuons & muIsolation
 
 #sequence for (tower-based) iso using CaloExtractor (fast)
 sequence muIsolationCal_globalMuons  = { muIsoDepositsCal_globalMuons  , muIsolationSumsCal_globalMuons }
-sequence muIsolationCal_ParamGlobalMuons  = { muIsoDepositsCal_ParamGlobalMuons  , muIsolationSumsCal_ParamGlobalMuons }
+#sums not included
+sequence muIsolationCal_ParamGlobalMuons  = { muIsoDepositsCal_ParamGlobalMuons  }
 sequence muIsolationCal_trackerMuons = { muIsoDepositsCal_trackerMuons , muIsolationSumsCal_trackerMuons }
 sequence muIsolationCal = { muIsolationCal_globalMuons & muIsolationCal_trackerMuons }
 
