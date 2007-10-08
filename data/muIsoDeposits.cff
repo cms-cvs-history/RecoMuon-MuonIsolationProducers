@@ -17,21 +17,21 @@ module muGlobalIsoDepositCtfTk
 
 module muParamGlobalIsoDepositGsTk 
        = muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
-replace muParamGlobalIsoDepositGsTk.ReadFromRecoMuonCollection = true
+replace muParamGlobalIsoDepositGsTk.InputType = "MuonCollection"
 replace muParamGlobalIsoDepositGsTk.MuonTrackRefType = "track" 
 replace muParamGlobalIsoDepositGsTk.inputMuonCollection = paramMuons:ParamGlobalMuons
 replace muParamGlobalIsoDepositGsTk.ExtractorPSet.inputTrackCollection = gsWithMaterialTracks
 
 module muTrackerIsoDepositCtfTk 
        = muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
-replace muTrackerIsoDepositCtfTk.ReadFromRecoMuonCollection = true
+replace muTrackerIsoDepositCtfTk.InputType = "MuonCollection"
 replace muTrackerIsoDepositCtfTk.MuonTrackRefType = "track"         
 replace muTrackerIsoDepositCtfTk.inputMuonCollection = trackerMuons
 
 #muIsoDeposit maker for trackerMuons based on TrackAssociator using towers
 module muGlobalIsoDepositCalByAssociatorTowers 
        = muIsoDepositCalByAssociatorTowers from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
-replace muGlobalIsoDepositCalByAssociatorTowers.ReadFromRecoMuonCollection = false
+replace muGlobalIsoDepositCalByAssociatorTowers.InputType = "TrackCollection"
 replace muGlobalIsoDepositCalByAssociatorTowers.MuonTrackRefType = "combinedMuon"       
 replace muGlobalIsoDepositCalByAssociatorTowers.inputMuonCollection = globalMuons
 replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB 
@@ -53,7 +53,9 @@ replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorPar
 
 module muTrackerIsoDepositCalByAssociatorTowers 
        = muIsoDepositCalByAssociatorTowers from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
-replace muTrackerIsoDepositCalByAssociatorTowers.ReadFromRecoMuonCollection = true
+replace muTrackerIsoDepositCalByAssociatorTowers.InputType = "MuonCollection"
+replace muTrackerIsoDepositCalByAssociatorTowers.OutputType = "MapToTracks"
+replace muTrackerIsoDepositCalByAssociatorTowers.ExtractForCandidate = false
 replace muTrackerIsoDepositCalByAssociatorTowers.MuonTrackRefType = "track"       
 replace muTrackerIsoDepositCalByAssociatorTowers.inputMuonCollection = trackerMuons
 replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB 
@@ -77,7 +79,7 @@ replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorPa
 #muIsoDeposit maker for globalMuons and trackerMuons based on TrackAssociator using rec-hits
 module muGlobalIsoDepositCalByAssociatorHits 
        = muIsoDepositCalByAssociatorHits from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cfi"
-replace muGlobalIsoDepositCalByAssociatorHits.ReadFromRecoMuonCollection = false
+replace muGlobalIsoDepositCalByAssociatorHits.InputType = "TrackCollection"
 replace muGlobalIsoDepositCalByAssociatorHits.MuonTrackRefType = "combinedMuon"       
 replace muGlobalIsoDepositCalByAssociatorHits.inputMuonCollection = globalMuons
 replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB
@@ -99,7 +101,7 @@ replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParam
 
 module muTrackerIsoDepositCalByAssociatorHits 
        = muIsoDepositCalByAssociatorHits from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cfi"
-replace muTrackerIsoDepositCalByAssociatorHits.ReadFromRecoMuonCollection = true
+replace muTrackerIsoDepositCalByAssociatorHits.InputType = "MuonCollection"
 replace muTrackerIsoDepositCalByAssociatorHits.MuonTrackRefType = "track"       
 replace muTrackerIsoDepositCalByAssociatorHits.inputMuonCollection = trackerMuons
 replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB
@@ -123,7 +125,7 @@ replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorPara
 #muIsoDeposit maker for trackerMuons based on TrackAssociator using towers
 module muGlobalIsoDepositJets 
        = muIsoDepositJets from "RecoMuon/MuonIsolationProducers/data/muIsoDepositJets.cfi"
-replace muGlobalIsoDepositJets.ReadFromRecoMuonCollection = false
+replace muGlobalIsoDepositJets.InputType = "TrackCollection"
 replace muGlobalIsoDepositJets.MuonTrackRefType = "combinedMuon"       
 replace muGlobalIsoDepositJets.inputMuonCollection = globalMuons
 replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB 
@@ -145,7 +147,7 @@ replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.dRHcal = 
 
 module muTrackerIsoDepositJets 
        = muIsoDepositJets from "RecoMuon/MuonIsolationProducers/data/muIsoDepositJets.cfi"
-replace muTrackerIsoDepositJets.ReadFromRecoMuonCollection = true
+replace muTrackerIsoDepositJets.InputType = "MuonCollection"
 replace muTrackerIsoDepositJets.MuonTrackRefType = "track"       
 replace muTrackerIsoDepositJets.inputMuonCollection = trackerMuons
 replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB 
@@ -175,7 +177,7 @@ replace muGlobalIsoDepositCalEcal.ExtractorPSet.Weight_H = 0
 module muParamGlobalIsoDepositCalEcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
 replace muParamGlobalIsoDepositCalEcal.ExtractorPSet.Weight_E = 1
 replace muParamGlobalIsoDepositCalEcal.ExtractorPSet.Weight_H = 0
-replace muParamGlobalIsoDepositCalEcal.ReadFromRecoMuonCollection = true
+replace muParamGlobalIsoDepositCalEcal.InputType = "MuonCollection"
 replace muParamGlobalIsoDepositCalEcal.MuonTrackRefType = "track"       
 replace muParamGlobalIsoDepositCalEcal.inputMuonCollection = paramMuons:ParamGlobalMuons
 replace muParamGlobalIsoDepositCalEcal.ExtractorPSet.CaloTowerCollectionLabel = towerMaker
@@ -184,7 +186,7 @@ replace muParamGlobalIsoDepositCalEcal.ExtractorPSet.CaloTowerCollectionLabel = 
 module muTrackerIsoDepositCalEcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
 replace muTrackerIsoDepositCalEcal.ExtractorPSet.Weight_E = 1
 replace muTrackerIsoDepositCalEcal.ExtractorPSet.Weight_H = 0
-replace muTrackerIsoDepositCalEcal.ReadFromRecoMuonCollection = true
+replace muTrackerIsoDepositCalEcal.InputType = "MuonCollection"
 replace muTrackerIsoDepositCalEcal.MuonTrackRefType = "track"       
 replace muTrackerIsoDepositCalEcal.inputMuonCollection = trackerMuons
 
@@ -197,7 +199,7 @@ replace muGlobalIsoDepositCalHcal.ExtractorPSet.Weight_H = 1
 module muParamGlobalIsoDepositCalHcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
 replace muParamGlobalIsoDepositCalHcal.ExtractorPSet.Weight_E = 0
 replace muParamGlobalIsoDepositCalHcal.ExtractorPSet.Weight_H = 1
-replace muParamGlobalIsoDepositCalHcal.ReadFromRecoMuonCollection = true
+replace muParamGlobalIsoDepositCalHcal.InputType = "MuonCollection"
 replace muParamGlobalIsoDepositCalHcal.MuonTrackRefType = "track"       
 replace muParamGlobalIsoDepositCalHcal.inputMuonCollection = paramMuons:ParamGlobalMuons
 replace muParamGlobalIsoDepositCalHcal.ExtractorPSet.CaloTowerCollectionLabel = towerMaker
@@ -206,7 +208,7 @@ replace muParamGlobalIsoDepositCalHcal.ExtractorPSet.CaloTowerCollectionLabel = 
 module muTrackerIsoDepositCalHcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
 replace muTrackerIsoDepositCalHcal.ExtractorPSet.Weight_E = 0
 replace muTrackerIsoDepositCalHcal.ExtractorPSet.Weight_H = 1
-replace muTrackerIsoDepositCalHcal.ReadFromRecoMuonCollection = true
+replace muTrackerIsoDepositCalHcal.InputType = "MuonCollection"
 replace muTrackerIsoDepositCalHcal.MuonTrackRefType = "track"       
 replace muTrackerIsoDepositCalHcal.inputMuonCollection = trackerMuons
 

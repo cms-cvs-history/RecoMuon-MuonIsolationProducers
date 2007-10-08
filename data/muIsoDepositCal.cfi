@@ -1,5 +1,8 @@
 module muIsoDepositCal = MuIsoDepositProducer {
-  bool ReadFromRecoMuonCollection = false
+  string InputType = "TrackCollection"	
+  string OutputType = "MapToTracks"	
+  bool ExtractForCandidate = false
+
   string MuonTrackRefType = "combinedMuon"
 
   InputTag inputMuonCollection = globalMuons
