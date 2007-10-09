@@ -54,7 +54,7 @@ replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorPar
 module muTrackerIsoDepositCalByAssociatorTowers 
        = muIsoDepositCalByAssociatorTowers from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
 replace muTrackerIsoDepositCalByAssociatorTowers.InputType = "MuonCollection"
-replace muTrackerIsoDepositCalByAssociatorTowers.OutputType = "MapToMuons"
+replace muTrackerIsoDepositCalByAssociatorTowers.OutputType = "MapToTracks"
 replace muTrackerIsoDepositCalByAssociatorTowers.ExtractForCandidate = false
 replace muTrackerIsoDepositCalByAssociatorTowers.MuonTrackRefType = "track"       
 replace muTrackerIsoDepositCalByAssociatorTowers.inputMuonCollection = trackerMuons
