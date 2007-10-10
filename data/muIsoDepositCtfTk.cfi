@@ -1,21 +1,13 @@
+# -*-SH-*-
+
 module muIsoDepositCtfTk = MuIsoDepositProducer {
-  string InputType = "TrackCollection"
-  string OutputType = "MapToTracks"
-  bool ExtractForCandidate = false
+  PSet IOPSet = {
+    using MIsoDepositViewIOBlock
+  }
 
-  string MuonTrackRefType = "combinedMuon"
-
-  InputTag inputMuonCollection = globalMuons
-  bool MultipleDepositsFlag = false
   PSet ExtractorPSet = 
   {
-    string ComponentName = "TrackExtractor"
-    InputTag inputTrackCollection = ctfWithMaterialTracks
-    untracked string DepositLabel = ""
-    double Diff_r = 0.1
-    double Diff_z = 0.2
-    double DR_Max = 1.0
-    double DR_Veto = 0.01
+    using MIsoTrackExtractorCtfBlock
   }
 
 }

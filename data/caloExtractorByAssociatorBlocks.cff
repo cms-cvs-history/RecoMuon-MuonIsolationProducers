@@ -1,8 +1,6 @@
 include "RecoMuon/MuonIsolationProducers/data/trackAssociatorBlocks.cff"
 
 block MIsoCaloExtractorByAssociatorTowersBlock = {
-  PSet ExtractorPSet = 
-  {
     string ComponentName = "CaloExtractorByAssociator"
     vstring DepositInstanceLabels = { "ecal", "hcal", "ho" }
 
@@ -33,14 +31,10 @@ block MIsoCaloExtractorByAssociatorTowersBlock = {
     double NoiseTow_EE = 0.15
 
     untracked bool PrintTimeReport = false
-  }
-
 }
 
 
 block MIsoCaloExtractorByAssociatorHitsBlock = {
-  PSet ExtractorPSet = 
-  {
     string ComponentName = "CaloExtractorByAssociator"
     vstring DepositInstanceLabels = { "ecal", "hcal", "ho" }
 
@@ -69,5 +63,4 @@ block MIsoCaloExtractorByAssociatorHitsBlock = {
     double NoiseTow_EB = 0.04
     double NoiseTow_EE = 0.15
     untracked bool PrintTimeReport = false
-  }
 }

@@ -1,8 +1,6 @@
 include "RecoMuon/MuonIsolationProducers/data/trackAssociatorBlocks.cff"
 
 block MIsoJetExtractorBlock = {
-  PSet ExtractorPSet = 
-  {
     string ComponentName = "JetExtractor"
 
     InputTag JetCollectionLabel = midPointCone5CaloJets
@@ -22,5 +20,4 @@ block MIsoJetExtractorBlock = {
     double Threshold = 5
 
     untracked bool PrintTimeReport = false
-  }
 }

@@ -1,11 +1,11 @@
+# -*-SH-*-
+
 module muIsoDepositCalByAssociatorHits = MuIsoDepositProducer {
-  string InputType = "TrackCollection"
-  string OutputType = "MapToTracks"
-  bool ExtractForCandidate = false
+  PSet IOPSet = {
+    using MIsoDepositViewMultiIOBlock
+  }
 
-  string MuonTrackRefType = "combinedMuon"
-
-  InputTag inputMuonCollection = globalMuons
-  bool MultipleDepositsFlag = true
-  using MIsoCaloExtractorByAssociatorHitsBlock
+  PSet ExtractorPset = {
+    using MIsoCaloExtractorByAssociatorHitsBlock
+  }
 }
