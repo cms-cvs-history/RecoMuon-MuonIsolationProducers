@@ -28,53 +28,19 @@ replace muTrackerIsoDepositCtfTk.InputType = "MuonCollection"
 replace muTrackerIsoDepositCtfTk.MuonTrackRefType = "track"         
 replace muTrackerIsoDepositCtfTk.inputMuonCollection = trackerMuons
 
+include "RecoMuon/MuonIsolationProducers/data/caloExtractorByAssociatorBlocks.cff"
 #muIsoDeposit maker for trackerMuons based on TrackAssociator using towers
 module muGlobalIsoDepositCalByAssociatorTowers 
        = muIsoDepositCalByAssociatorTowers from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
 replace muGlobalIsoDepositCalByAssociatorTowers.InputType = "TrackCollection"
 replace muGlobalIsoDepositCalByAssociatorTowers.MuonTrackRefType = "combinedMuon"       
 replace muGlobalIsoDepositCalByAssociatorTowers.inputMuonCollection = globalMuons
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB 
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.EERecHitCollectionLabel   = ecalRecHit:EcalRecHitsEE 
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.CaloTowerCollectionLabel  = towerMaker 
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.HBHERecHitCollectionLabel = hbhereco 
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.HORecHitCollectionLabel   = horeco 
- 
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useEcal = false      # RecoHits 
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useHcal = false     # RecoHits 
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useHO = false        # RecoHits 
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useCalo = true     # CaloTowers 
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useMuon = false      # RecoHits 
-
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.dREcalPreselection = 1.0 
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.dRHcalPreselection = 1.0 
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.dREcal = 1.0 
-replace muGlobalIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.dRHcal = 1.0 
 
 module muTrackerIsoDepositCalByAssociatorTowers 
        = muIsoDepositCalByAssociatorTowers from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
 replace muTrackerIsoDepositCalByAssociatorTowers.InputType = "MuonCollection"
-replace muTrackerIsoDepositCalByAssociatorTowers.OutputType = "MapToTracks"
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractForCandidate = false
 replace muTrackerIsoDepositCalByAssociatorTowers.MuonTrackRefType = "track"       
 replace muTrackerIsoDepositCalByAssociatorTowers.inputMuonCollection = trackerMuons
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB 
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.EERecHitCollectionLabel   = ecalRecHit:EcalRecHitsEE 
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.CaloTowerCollectionLabel  = towerMaker 
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.HBHERecHitCollectionLabel = hbhereco 
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.HORecHitCollectionLabel   = horeco 
- 
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useEcal = false      # RecoHits 
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useHcal = false     # RecoHits 
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useHO = false        # RecoHits 
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useCalo = true     # CaloTowers 
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useMuon = false      # RecoHits 
-
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.dREcalPreselection = 1.0 
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.dRHcalPreselection = 1.0 
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.dREcal = 1.0 
-replace muTrackerIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.dRHcal = 1.0 
-
 
 #muIsoDeposit maker for globalMuons and trackerMuons based on TrackAssociator using rec-hits
 module muGlobalIsoDepositCalByAssociatorHits 
@@ -82,90 +48,26 @@ module muGlobalIsoDepositCalByAssociatorHits
 replace muGlobalIsoDepositCalByAssociatorHits.InputType = "TrackCollection"
 replace muGlobalIsoDepositCalByAssociatorHits.MuonTrackRefType = "combinedMuon"       
 replace muGlobalIsoDepositCalByAssociatorHits.inputMuonCollection = globalMuons
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.EERecHitCollectionLabel   = ecalRecHit:EcalRecHitsEE
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.CaloTowerCollectionLabel  = towerMaker
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.HBHERecHitCollectionLabel = hbhereco
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.HORecHitCollectionLabel   = horeco
-
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.useEcal = true      # RecoHits
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.useHcal = true      # RecoHits
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.useHO = true	  # RecoHits
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.useCalo = false     # CaloTowers
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.useMuon = false      # RecoHits
-
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.dREcalPreselection = 1.0
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.dRHcalPreselection = 1.0
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.dREcal = 1.0
-replace muGlobalIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.dRHcal = 1.0
 
 module muTrackerIsoDepositCalByAssociatorHits 
        = muIsoDepositCalByAssociatorHits from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cfi"
 replace muTrackerIsoDepositCalByAssociatorHits.InputType = "MuonCollection"
 replace muTrackerIsoDepositCalByAssociatorHits.MuonTrackRefType = "track"       
 replace muTrackerIsoDepositCalByAssociatorHits.inputMuonCollection = trackerMuons
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.EERecHitCollectionLabel   = ecalRecHit:EcalRecHitsEE
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.CaloTowerCollectionLabel  = towerMaker
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.HBHERecHitCollectionLabel = hbhereco
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.HORecHitCollectionLabel   = horeco
 
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.useEcal = true      # RecoHits
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.useHcal = true      # RecoHits
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.useHO = true	  # RecoHits
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.useCalo = false     # CaloTowers
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.useMuon = false      # RecoHits
-
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.dREcalPreselection = 1.0
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.dRHcalPreselection = 1.0
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.dREcal = 1.0
-replace muTrackerIsoDepositCalByAssociatorHits.ExtractorPSet.TrackAssociatorParameters.dRHcal = 1.0
-
-
+include "RecoMuon/MuonIsolationProducers/data/jetExtractorBlock.cff"
 #muIsoDeposit maker for trackerMuons based on TrackAssociator using towers
 module muGlobalIsoDepositJets 
        = muIsoDepositJets from "RecoMuon/MuonIsolationProducers/data/muIsoDepositJets.cfi"
 replace muGlobalIsoDepositJets.InputType = "TrackCollection"
 replace muGlobalIsoDepositJets.MuonTrackRefType = "combinedMuon"       
 replace muGlobalIsoDepositJets.inputMuonCollection = globalMuons
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB 
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.EERecHitCollectionLabel   = ecalRecHit:EcalRecHitsEE 
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.CaloTowerCollectionLabel  = towerMaker 
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.HBHERecHitCollectionLabel = hbhereco 
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.HORecHitCollectionLabel   = horeco 
- 
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.useEcal = false      # RecoHits 
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.useHcal = false     # RecoHits 
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.useHO = false        # RecoHits 
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.useCalo = true     # CaloTowers 
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.useMuon = false      # RecoHits 
-
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.dREcalPreselection = 0.5 
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.dRHcalPreselection = 0.5 
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.dREcal = 0.5 
-replace muGlobalIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.dRHcal = 0.5 
 
 module muTrackerIsoDepositJets 
        = muIsoDepositJets from "RecoMuon/MuonIsolationProducers/data/muIsoDepositJets.cfi"
 replace muTrackerIsoDepositJets.InputType = "MuonCollection"
 replace muTrackerIsoDepositJets.MuonTrackRefType = "track"       
 replace muTrackerIsoDepositJets.inputMuonCollection = trackerMuons
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB 
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.EERecHitCollectionLabel   = ecalRecHit:EcalRecHitsEE 
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.CaloTowerCollectionLabel  = towerMaker 
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.HBHERecHitCollectionLabel = hbhereco 
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.HORecHitCollectionLabel   = horeco 
- 
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.useEcal = false      # RecoHits 
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.useHcal = false     # RecoHits 
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.useHO = false        # RecoHits 
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.useCalo = true     # CaloTowers 
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.useMuon = false      # RecoHits 
-
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.dREcalPreselection = 0.5 
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.dRHcalPreselection = 0.5 
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.dREcal = 0.5 
-replace muTrackerIsoDepositJets.ExtractorPSet.TrackAssociatorParameters.dRHcal = 0.5 
 
 #Ecal-only muIsoDeposit using CaloExtractor for globalMuons
 module muGlobalIsoDepositCalEcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
