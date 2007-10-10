@@ -4,41 +4,15 @@
 block RecoMuonIsolationFEVT = {
   untracked vstring outputCommands = {
 #MuIsoDeposits
+    "keep *_muIsoDepositCtfTk_*_*",
+    "keep *_muIsoDepositCalByAssociatorTowers_*_*",
+    "keep *_muIsoDepositCalByAssociatorHits_*_*",
+    "keep *_muIsoDepositJets_*_*",
+
     "keep *_muGlobalIsoDepositCtfTk_*_*",
-    "keep *_muGlobalIsoDepositCalEcal_*_*",
-    "keep *_muGlobalIsoDepositCalHcal_*_*",
     "keep *_muGlobalIsoDepositCalByAssociatorTowers_*_*",
     "keep *_muGlobalIsoDepositCalByAssociatorHits_*_*",
-    "keep *_muGlobalIsoDepositJets_*_*",
-    "keep *_muTrackerIsoDepositCtfTk_*_*",
-    "keep *_muTrackerIsoDepositCalEcal_*_*",
-    "keep *_muTrackerIsoDepositCalHcal_*_*",
-    "keep *_muTrackerIsoDepositCalByAssociatorTowers_*_*",
-    "keep *_muTrackerIsoDepositCalByAssociatorHits_*_*",
-    "keep *_muTrackerIsoDepositJets_*_*",
-#MuIsolationSums
-    "keep *_muGlobalIsolationSumInConesTracks_*_*",
-    "keep *_muGlobalIsolationSumInConesTracksMuVetoed_*_*",
-    "keep *_muGlobalIsolationSumCalEcal_*_*",
-    "keep *_muGlobalIsolationSumCalHcal_*_*",
-    "keep *_muGlobalIsolationSumAssocEcalTowers_*_*",
-    "keep *_muGlobalIsolationSumAssocHcalTowers_*_*",
-    "keep *_muGlobalIsolationSumAssocHOTowers_*_*",
-    "keep *_muGlobalIsolationSumAssocEcalHits_*_*",
-    "keep *_muGlobalIsolationSumAssocHcalHits_*_*",
-    "keep *_muGlobalIsolationSumAssocHOHits_*_*",
-    "keep *_muGlobalIsolationSumInConesJets_*_*",
-    "keep *_muTrackerIsolationSumInConesTracks_*_*",
-    "keep *_muTrackerIsolationSumInConesTracksMuVetoed_*_*",
-    "keep *_muTrackerIsolationSumCalEcal_*_*",
-    "keep *_muTrackerIsolationSumCalHcal_*_*",
-    "keep *_muTrackerIsolationSumAssocEcalTowers_*_*",
-    "keep *_muTrackerIsolationSumAssocHcalTowers_*_*",
-    "keep *_muTrackerIsolationSumAssocHOTowers_*_*",
-    "keep *_muTrackerIsolationSumAssocEcalHits_*_*",
-    "keep *_muTrackerIsolationSumAssocHcalHits_*_*",
-    "keep *_muTrackerIsolationSumAssocHOHits_*_*",
-    "keep *_muTrackerIsolationSumInConesJets_*_*"
+    "keep *_muGlobalIsoDepositJets_*_*"
   }
 }
 
@@ -46,42 +20,15 @@ block RecoMuonIsolationFEVT = {
 block RecoMuonIsolationRECO = {
   untracked vstring outputCommands = {
 #MuIsoDeposits
+    "keep *_muIsoDepositCtfTk_*_*",
+    "keep *_muIsoDepositCalByAssociatorTowers_*_*",
+    "keep *_muIsoDepositCalByAssociatorHits_*_*",
+    "keep *_muIsoDepositJets_*_*",
+
     "keep *_muGlobalIsoDepositCtfTk_*_*",
-    "keep *_muGlobalIsoDepositCalEcal_*_*",
-    "keep *_muGlobalIsoDepositCalHcal_*_*",
     "keep *_muGlobalIsoDepositCalByAssociatorTowers_*_*",
     "keep *_muGlobalIsoDepositCalByAssociatorHits_*_*",
-    "keep *_muGlobalIsoDepositJets_*_*",
-    "keep *_muTrackerIsoDepositCtfTk_*_*",
-    "keep *_muTrackerIsoDepositCalEcal_*_*",
-    "keep *_muTrackerIsoDepositCalHcal_*_*",
-    "keep *_muTrackerIsoDepositCalByAssociatorTowers_*_*",
-    "keep *_muTrackerIsoDepositCalByAssociatorHits_*_*",
-    "keep *_muTrackerIsoDepositJets_*_*",
-#MuIsolationSums
-    "keep *_muGlobalIsolationSumInConesTracks_*_*",
-    "keep *_muGlobalIsolationSumInConesTracksMuVetoed_*_*",
-    "keep *_muGlobalIsolationSumCalEcal_*_*",
-    "keep *_muGlobalIsolationSumCalHcal_*_*",
-    "keep *_muGlobalIsolationSumAssocEcalTowers_*_*",
-    "keep *_muGlobalIsolationSumAssocHcalTowers_*_*",
-    "keep *_muGlobalIsolationSumAssocHOTowers_*_*",
-    "keep *_muGlobalIsolationSumAssocEcalHits_*_*",
-    "keep *_muGlobalIsolationSumAssocHcalHits_*_*",
-    "keep *_muGlobalIsolationSumAssocHOHits_*_*",
-    "keep *_muGlobalIsolationSumInConesJets_*_*",
-    "keep *_muTrackerIsolationSumInConesTracks_*_*",
-    "keep *_muTrackerIsolationSumInConesTracksMuVetoed_*_*",
-    "keep *_muTrackerIsolationSumCalEcal_*_*",
-    "keep *_muTrackerIsolationSumCalHcal_*_*",
-    "keep *_muTrackerIsolationSumAssocEcalTowers_*_*",
-    "keep *_muTrackerIsolationSumAssocHcalTowers_*_*",
-    "keep *_muTrackerIsolationSumAssocHOTowers_*_*",
-    "keep *_muTrackerIsolationSumAssocEcalHits_*_*",
-    "keep *_muTrackerIsolationSumAssocHcalHits_*_*",
-    "keep *_muTrackerIsolationSumAssocHOHits_*_*",
-    "keep *_muTrackerIsolationSumInConesJets_*_*"
-
+    "keep *_muGlobalIsoDepositJets_*_*"
   }
 }
 
@@ -90,12 +37,10 @@ block RecoMuonIsolationRECO = {
 block RecoMuonIsolationAOD = {
   untracked vstring outputCommands = {
 #MuIsoDeposits
-    "keep *_muGlobalIsoDepositCtfTk_*_*",
-    "keep *_muGlobalIsoDepositCalByAssociatorTowers_*_*",
-    "keep *_muGlobalIsoDepositJets_*_*",
-    "keep *_muTrackerIsoDepositCtfTk_*_*",
-    "keep *_muTrackerIsoDepositCalByAssociatorTowers_*_*",
-    "keep *_muTrackerIsoDepositJets_*_*"
+    "keep *_muIsoDepositCtfTk_*_*",
+    "keep *_muIsoDepositCalByAssociatorTowers_*_*",
+    "keep *_muIsoDepositCalByAssociatorHits_*_*",
+    "keep *_muIsoDepositJets_*_*"
   }
 }
 
@@ -108,18 +53,6 @@ block RecoMuonIsolationFAMOS = {
     "keep *_muParamGlobalIsoDepositCalHcal_*_*",
     "keep *_muParamGlobalIsoDepositCalByAssociatorTowers_*_*",
     "keep *_muParamGlobalIsoDepositCalByAssociatorHits_*_*",
-    "keep *_muParamGlobalIsoDepositJets_*_*",
-#MuIsolationSums
-    "keep *_muParamGlobalIsolationSumInConesTracks_*_*",
-    "keep *_muParamGlobalIsolationSumInConesTracksMuVetoed_*_*",
-    "keep *_muParamGlobalIsolationSumCalEcal_*_*",
-    "keep *_muParamGlobalIsolationSumCalHcal_*_*",
-    "keep *_muParamGlobalIsolationSumAssocEcalTowers_*_*",
-    "keep *_muParamGlobalIsolationSumAssocHcalTowers_*_*",
-    "keep *_muParamGlobalIsolationSumAssocHOTowers_*_*",
-    "keep *_muParamGlobalIsolationSumAssocEcalHits_*_*",
-    "keep *_muParamGlobalIsolationSumAssocHcalHits_*_*",
-    "keep *_muParamGlobalIsolationSumAssocHOHits_*_*",
-    "keep *_muParamGlobalIsolationSumInConesJets_*_*"
+    "keep *_muParamGlobalIsoDepositJets_*_*"
   }
 }
