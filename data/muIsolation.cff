@@ -1,56 +1,13 @@
 #seqs/mods to make MuIsoDeposits
 include "RecoMuon/MuonIsolationProducers/data/muIsoDeposits.cff"
 
-#seqs/mods to make sums (cones 0.2, 0.3, 0.4, 0.7)
-include "RecoMuon/MuonIsolationProducers/data/muIsolationSumInCones.cff"
-
-#sequence for tracks (global and tracker muons separately)
-#the first one is for bkw compatibility (or to make more confusion ?) -- for globalMuons
-sequence muIsolationTk_globalMuons  = { muIsoDepositsTk_globalMuons  , muIsolationSumsTk_globalMuons }
-#sums not included
-sequence muIsolationTk_ParamGlobalMuons  = { muIsoDepositsTk_ParamGlobalMuons }
-sequence muIsolationTk_trackerMuons = { muIsoDepositsTk_trackerMuons , muIsolationSumsTk_trackerMuons }
-sequence muIsolationTk = { muIsolationTk_globalMuons & muIsolationTk_trackerMuons }
-
-#sequence for tower-based iso using associator
-sequence muIsolationAssocTowers_globalMuons  = { muGlobalIsoDepositCalByAssociatorTowers , muIsolationSumsAssocTowers_globalMuons }
-sequence muIsolationAssocTowers_trackerMuons = { muTrackerIsoDepositCalByAssociatorTowers , muIsolationSumsAssocTowers_trackerMuons }
-sequence muIsolationAssocTowers = { muIsolationAssocTowers_globalMuons & muIsolationAssocTowers_trackerMuons }
-
-#sequence for hit-based iso using associator
-sequence muIsolationAssocHits_globalMuons  = { muGlobalIsoDepositCalByAssociatorHits , muIsolationSumsAssocHits_globalMuons }
-sequence muIsolationAssocHits_trackerMuons = { muTrackerIsoDepositCalByAssociatorHits , muIsolationSumsAssocHits_trackerMuons }
-sequence muIsolationAssocHits = { muIsolationAssocHits_globalMuons & muIsolationAssocHits_trackerMuons }
-
-#sequence for (tower-based) iso using CaloExtractor (fast)
-sequence muIsolationCal_globalMuons  = { muIsoDepositsCal_globalMuons  , muIsolationSumsCal_globalMuons }
-#sums not included
-sequence muIsolationCal_ParamGlobalMuons  = { muIsoDepositsCal_ParamGlobalMuons  }
-sequence muIsolationCal_trackerMuons = { muIsoDepositsCal_trackerMuons , muIsolationSumsCal_trackerMuons }
-sequence muIsolationCal = { muIsolationCal_globalMuons & muIsolationCal_trackerMuons }
-
-#sequence for jet-based iso
-sequence muIsolationJets_globalMuons = { muIsoDepositsJets_globalMuons , muIsolationSumsJets_globalMuons }
-sequence muIsolationJets_trackerMuons = { muIsoDepositsJets_trackerMuons , muIsolationSumsJets_trackerMuons }
-sequence muIsolationJets = { muIsolationJets_globalMuons & muIsolationJets_trackerMuons }
-
-# full isolation seq including isolation sums (globalMuons and trackerMuons only)
-#and then both combined
-sequence muIsolationWithSums_globalMuons = { muIsolationTk_globalMuons & muIsolationAssocTowers_globalMuons & muIsolationJets_globalMuons}
-sequence muIsolationWithSums_trackerMuons = { muIsolationTk_trackerMuons & muIsolationAssocTowers_trackerMuons & muIsolationJets_trackerMuons}
-sequence muIsolationWithSums = { muIsolation_globalMuons & muIsolation_trackerMuons }
-
 #  sequences suggested for reco (only isoDeposits are produced at this point)
+sequence muIsolation_muons = { muIsoDeposits_muons }
 sequence muIsolation_globalMuons = { muIsoDeposits_globalMuons }
 sequence muIsolation_ParamGlobalMuons = { muIsoDeposits_ParamGlobalMuons }
 sequence muIsolation_trackerMuons = { muIsoDeposits_trackerMuons }
-sequence muIsolation = { muIsolation_globalMuons & muIsolation_trackerMuons }
 
-# run these to get the isolation sums in pre-configured cones of 0.2, 0.3, 0.4, 0.7 (see .cfi's to be sure)
-sequence muIsolationSums_globalMuons = { muIsolationSumsTk_globalMuons & muIsolationSumsAssocTowers_globalMuons & muIsolationSumsJets_globalMuons }
-sequence muIsolationSums_trackerMuons = { muIsolationSumsTk_trackerMuons & muIsolationSumsAssocTowers_trackerMuons & muIsolationSumsJets_trackerMuons }
-sequence muIsolationSums = { muIsolationSums_globalMuons & muIsolationSums_trackerMuons }
+#standard sequence (trackerMuons are never more; globalMuons-based seq is to be deprecated
+sequence muIsolation = { muIsolation_muons & muIsolation_globalMuons }
 
-
-#will run all available/configured iso algorithms
-sequence muIsolationAll = { muIsolationTk & muIsolationAssocTowers & muIsolationAssocHits & muIsolationCal & muIsolationJets}
+# sums are never more: DIY based on the sums.cff
