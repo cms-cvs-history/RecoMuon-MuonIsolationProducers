@@ -5,7 +5,7 @@ module muIsoDepositCalByAssociatorHits = MuIsoDepositProducer {
     using MIsoDepositViewMultiIOBlock
   }
 
-  PSet ExtractorPset = {
+  PSet ExtractorPSet = {
     using MIsoCaloExtractorByAssociatorHitsBlock
   }
 }
