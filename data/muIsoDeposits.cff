@@ -105,7 +105,7 @@ sequence muIsoDepositsJets_trackerMuons = {
 #------------------------------
 
 sequence muIsoDepositsTk_muons = {
-  muGlobalIsoDepositCtfTk
+  muIsoDepositCtfTk
 }
 sequence muIsoDepositsTk_globalMuons = {
   muGlobalIsoDepositCtfTk
