@@ -91,7 +91,7 @@ private:
     typename CT::size_type initAssociation(edm::Event& event, CandMap<CT>& candMapT) const;
 
   template <typename CT >
-    void initVetos(std::vector<reco::MuIsoDeposit::Vetos>& vetos, CandMap<CT>& candMap) const;
+    void initVetos(std::vector<reco::MuIsoDeposit::Vetos*>& vetos, CandMap<CT>& candMap) const;
   
   template <typename CT, typename OV>
     void writeOutImpl(edm::Event& event, const CandMap<CT>& candMapT, const Results& results) const;

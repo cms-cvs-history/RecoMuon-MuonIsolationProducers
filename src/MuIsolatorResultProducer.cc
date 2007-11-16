@@ -159,10 +159,10 @@ void MuIsolatorResultProducer::produceImpl(Event& event, const EventSetup& event
   
   typename CT::size_type colSize = initAssociation(event, candMapT);
 
+  std::vector<reco::MuIsoDeposit::Vetos*> vetoDeps(theDepositConfs.size(), 0);
   Results results(colSize);
   if (colSize != 0){
     if (theRemoveOtherVetos){
-      std::vector<reco::MuIsoDeposit::Vetos> vetoDeps(colSize, reco::MuIsoDeposit::Vetos());
       initVetos<CT>(vetoDeps, candMapT);
     }
 
@@ -178,6 +178,16 @@ void MuIsolatorResultProducer::produceImpl(Event& event, const EventSetup& event
 
   LogDebug(metname)<<"Ready to write out results of size "<<results.size();
   writeOut<CT>(event, candMapT, results);
+
+
+  //! clean up
+  for(uint iDep = 0; iDep< vetoDeps.size(); ++iDep){
+    //! do cleanup
+    if (vetoDeps[iDep]){
+      delete vetoDeps[iDep];
+      vetoDeps[iDep] = 0;
+    }
+  }
 
 }
 
@@ -229,7 +239,7 @@ MuIsolatorResultProducer::initAssociation(Event& event, CandMap<CT>& candMapT) c
 }
 
 template <typename CT >
-void MuIsolatorResultProducer::initVetos(std::vector<reco::MuIsoDeposit::Vetos>& vetos, CandMap<CT>& candMapT) const {
+void MuIsolatorResultProducer::initVetos(std::vector<reco::MuIsoDeposit::Vetos*>& vetos, CandMap<CT>& candMapT) const {
   
 
   if (theRemoveOtherVetos){
@@ -246,7 +256,8 @@ void MuIsolatorResultProducer::initVetos(std::vector<reco::MuIsoDeposit::Vetos>&
 	      )
 	  ){
 	for (uint iDep =0; iDep < candMapT.get()[muI].second.size(); ++iDep){
-	  vetos[iDep].push_back(candMapT.get()[muI].second[iDep].dep->veto());
+          if (vetos[iDep] == 0) vetos[iDep] = new reco::MuIsoDeposit::Vetos();
+	  vetos[iDep]->push_back(candMapT.get()[muI].second[iDep].dep->veto());
 	}
       }
     }
@@ -254,7 +265,7 @@ void MuIsolatorResultProducer::initVetos(std::vector<reco::MuIsoDeposit::Vetos>&
     muI = 0;
     for (; muI < candMapT.get().size(); ++muI) {
       for(uint iDep =0; iDep < candMapT.get()[muI].second.size(); ++iDep){
-	candMapT.get()[muI].second[iDep].vetos = &vetos[iDep];
+	candMapT.get()[muI].second[iDep].vetos = vetos[iDep];
       }
     }
   }
