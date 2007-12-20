@@ -1,11 +1,11 @@
-# -*-SH-*-
+# -*-TCL-*-
 
 module muIsoDepositCalByAssociatorHits = MuIsoDepositProducer {
-  PSet IOPSet = {
-    using MIsoDepositViewMultiIOBlock
-  }
+    PSet IOPSet = {
+	using MIsoDepositViewMultiIOBlock
+    }
 
-  PSet ExtractorPSet = {
-    using MIsoCaloExtractorByAssociatorHitsBlock
-  }
+    PSet ExtractorPSet = {
+	using MIsoCaloExtractorByAssociatorHitsBlock
+    }
 }

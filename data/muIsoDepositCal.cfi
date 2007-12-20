@@ -1,12 +1,12 @@
-# -*-SH-*-
+# -*-TCL-*-
 
 module muIsoDepositCal = MuIsoDepositProducer {
-  PSet IOPSet = {
-    using MIsoDepositViewIOBlock
-  }
-  PSet ExtractorPSet = 
-  {
-    using MIsoCaloExtractorHLTBlock
-  }
+    PSet IOPSet = {
+	using MIsoDepositViewIOBlock
+    }
+    PSet ExtractorPSet = 
+    {
+	using MIsoCaloExtractorHLTBlock
+    }
 
 }

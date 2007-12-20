@@ -1,10 +1,12 @@
-module muIsoDepositJets = MuIsoDepositProducer {
-  PSet IOPSet = {
-    using MIsoDepositViewIOBlock
-  }
+# -*-TCL-*-
 
-  PSet ExtractorPSet = {
-    using MIsoJetExtractorBlock
-  }
+module muIsoDepositJets = MuIsoDepositProducer {
+    PSet IOPSet = {
+	using MIsoDepositViewIOBlock
+    }
+
+    PSet ExtractorPSet = {
+	using MIsoJetExtractorBlock
+    }
 
 }

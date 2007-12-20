@@ -1,4 +1,4 @@
-# -*-SH-*-
+# -*-TCL-*-
 
 block MIsoCaloExtractorHLTBlock = {
     string ComponentName = "CaloExtractor"

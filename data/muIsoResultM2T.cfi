@@ -1,19 +1,22 @@
+# -*-TCL-*-
+
 module muIsoResultM2T =  MuIsoResultFromMapToTrackProducer {
-   VPSet InputMuIsoDeposits = {{
-       InputTag DepositTag = muGlobalIsoDepositCtfTk
-       double DepositWeight = 1.
-       double DepositThreshold = 1.5      
-   }}
-
-   PSet IsolatorPSet = {
-       string ComponentName = "IsolatorByDeposit"
-       string ConeSizeType = "FixedConeSize"
-       double coneSize = 0.3
-   }
-
-   bool RemoveOtherVetos = false
-
-   PSet VetoPSet = {
-       bool SelectAll = true
-   }
+    VPSet InputMuIsoDeposits = {{
+	InputTag DepositTag = muGlobalIsoDepositCtfTk
+	double DepositWeight = 1.
+	double DepositThreshold = 1.5      
+    }}
+    
+    PSet IsolatorPSet = {
+	string ComponentName = "IsolatorByDeposit"
+	string ConeSizeType = "FixedConeSize"
+	double coneSize = 0.3
+    }
+    
+    bool RemoveOtherVetos = false
+    
+    PSet VetoPSet = {
+	bool SelectAll = true
+    }
 }
+

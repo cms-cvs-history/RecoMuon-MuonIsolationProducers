@@ -1,12 +1,8 @@
-block MIsoTrackAssociatorDefault = {
-  include "TrackingTools/TrackAssociator/data/default.cfi"
-}
-replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB
-replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.EERecHitCollectionLabel   = ecalRecHit:EcalRecHitsEE
-replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.CaloTowerCollectionLabel  = towerMaker
-replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.HBHERecHitCollectionLabel = hbhereco
-replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.HORecHitCollectionLabel   = horeco
+# -*-TCL-*-
 
+block MIsoTrackAssociatorDefault = {
+    include "TrackingTools/TrackAssociator/data/default.cfi"
+}
 replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.useEcal = false      # RecoHits
 replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.useHcal = false     # RecoHits
 replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.useHO = false        # RecoHits
@@ -19,14 +15,8 @@ replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.dREcal = 1.0
 replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.dRHcal = 1.0
 
 block MIsoTrackAssociatorTowers = {
-  include "TrackingTools/TrackAssociator/data/default.cfi"
+    include "TrackingTools/TrackAssociator/data/default.cfi"
 }
-replace MIsoTrackAssociatorTowers.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB
-replace MIsoTrackAssociatorTowers.TrackAssociatorParameters.EERecHitCollectionLabel   = ecalRecHit:EcalRecHitsEE
-replace MIsoTrackAssociatorTowers.TrackAssociatorParameters.CaloTowerCollectionLabel  = towerMaker
-replace MIsoTrackAssociatorTowers.TrackAssociatorParameters.HBHERecHitCollectionLabel = hbhereco
-replace MIsoTrackAssociatorTowers.TrackAssociatorParameters.HORecHitCollectionLabel   = horeco
-
 replace MIsoTrackAssociatorTowers.TrackAssociatorParameters.useEcal = false      # RecoHits
 replace MIsoTrackAssociatorTowers.TrackAssociatorParameters.useHcal = false     # RecoHits
 replace MIsoTrackAssociatorTowers.TrackAssociatorParameters.useHO = false        # RecoHits
@@ -40,14 +30,8 @@ replace MIsoTrackAssociatorTowers.TrackAssociatorParameters.dRHcal = 1.0
 
 
 block MIsoTrackAssociatorHits = {
-  include "TrackingTools/TrackAssociator/data/default.cfi"
+    include "TrackingTools/TrackAssociator/data/default.cfi"
 }
-replace MIsoTrackAssociatorHits.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB
-replace MIsoTrackAssociatorHits.TrackAssociatorParameters.EERecHitCollectionLabel   = ecalRecHit:EcalRecHitsEE
-replace MIsoTrackAssociatorHits.TrackAssociatorParameters.CaloTowerCollectionLabel  = towerMaker
-replace MIsoTrackAssociatorHits.TrackAssociatorParameters.HBHERecHitCollectionLabel = hbhereco
-replace MIsoTrackAssociatorHits.TrackAssociatorParameters.HORecHitCollectionLabel   = horeco
-
 replace MIsoTrackAssociatorHits.TrackAssociatorParameters.useEcal = true      # RecoHits
 replace MIsoTrackAssociatorHits.TrackAssociatorParameters.useHcal = true      # RecoHits
 replace MIsoTrackAssociatorHits.TrackAssociatorParameters.useHO = true        # RecoHits
@@ -61,14 +45,8 @@ replace MIsoTrackAssociatorHits.TrackAssociatorParameters.dRHcal = 1.0
 
 
 block MIsoTrackAssociatorJets = {
-  include "TrackingTools/TrackAssociator/data/default.cfi"
+    include "TrackingTools/TrackAssociator/data/default.cfi"
 }
-replace MIsoTrackAssociatorJets.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB
-replace MIsoTrackAssociatorJets.TrackAssociatorParameters.EERecHitCollectionLabel   = ecalRecHit:EcalRecHitsEE
-replace MIsoTrackAssociatorJets.TrackAssociatorParameters.CaloTowerCollectionLabel  = towerMaker
-replace MIsoTrackAssociatorJets.TrackAssociatorParameters.HBHERecHitCollectionLabel = hbhereco
-replace MIsoTrackAssociatorJets.TrackAssociatorParameters.HORecHitCollectionLabel   = horeco
-
 replace MIsoTrackAssociatorJets.TrackAssociatorParameters.useEcal = false      # RecoHits
 replace MIsoTrackAssociatorJets.TrackAssociatorParameters.useHcal = false     # RecoHits
 replace MIsoTrackAssociatorJets.TrackAssociatorParameters.useHO = false        # RecoHits

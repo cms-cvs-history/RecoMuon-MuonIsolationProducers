@@ -1,13 +1,13 @@
-# -*-SH-*-
+# -*-TCL-*-
 
 module muIsoDepositCtfTk = MuIsoDepositProducer {
-  PSet IOPSet = {
-    using MIsoDepositViewIOBlock
-  }
+    PSet IOPSet = {
+	using MIsoDepositViewIOBlock
+    }
 
-  PSet ExtractorPSet = 
-  {
-    using MIsoTrackExtractorCtfBlock
-  }
+    PSet ExtractorPSet = 
+    {
+	using MIsoTrackExtractorCtfBlock
+    }
 
 }

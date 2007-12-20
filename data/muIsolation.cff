@@ -1,13 +1,12 @@
+# -*-TCL-*-
+
 #seqs/mods to make MuIsoDeposits
 include "RecoMuon/MuonIsolationProducers/data/muIsoDeposits.cff"
 
 #  sequences suggested for reco (only isoDeposits are produced at this point)
 sequence muIsolation_muons = { muIsoDeposits_muons }
-sequence muIsolation_globalMuons = { muIsoDeposits_globalMuons }
 sequence muIsolation_ParamGlobalMuons = { muIsoDeposits_ParamGlobalMuons }
-sequence muIsolation_trackerMuons = { muIsoDeposits_trackerMuons }
+sequence muIsolation_ParamGlobalMuonsOld = { muIsoDeposits_ParamGlobalMuonsOld }
 
-#standard sequence (trackerMuons are never more; globalMuons-based seq is to be deprecated
-sequence muIsolation = { muIsolation_muons & muIsolation_globalMuons }
-
-# sums are never more: DIY based on the sums.cff
+#standard sequence
+sequence muIsolation = { muIsolation_muons  }

@@ -1,68 +1,38 @@
-#pieces needed to run the associator-related stuff
-include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cff"
-include "MagneticField/Engine/data/volumeBasedMagneticField.cfi"
-include "Geometry/CaloEventSetup/data/CaloGeometry.cfi"
-include "Geometry/CommonDetUnit/data/globalTrackingGeometry.cfi"
-include "TrackPropagation/SteppingHelixPropagator/data/SteppingHelixPropagatorAny.cfi"
-include "TrackingTools/TrackAssociator/data/DetIdAssociatorESProducer.cff" 
-include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cfi"
+# -*-TCL-*-
 
-include "RecoMuon/MuonIsolationProducers/data/isoDepositProducerIOBlocks.cff"
-
-include "RecoMuon/MuonIsolationProducers/data/trackExtractorBlocks.cff"
-include "RecoMuon/MuonIsolationProducers/data/caloExtractorByAssociatorBlocks.cff"
-include "RecoMuon/MuonIsolationProducers/data/jetExtractorBlock.cff"
-include "RecoMuon/MuonIsolationProducers/data/caloExtractorBlocks.cff"
+#the default set of includes
+include "RecoMuon/MuonIsolationProducers/data/muIsoDeposits_setup.cff"
 
 #the default set of modules first
 include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
 include "RecoMuon/MuonIsolationProducers/data/muIsoDepositJets.cfi"
 include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
+include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cfi"
 
-#now the derived ones
-#muTracker and muGlobal are for backward compatibility (to be deprecated?)
-module muGlobalIsoDepositCtfTk 
-       = muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
-replace muGlobalIsoDepositCtfTk.IOPSet = { using MIsoDepositGlobalIOBlock }
+#the same but for FastSim muons
+module muParamGlobalIsoDepositCtfTk 
+= muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
+replace muParamGlobalIsoDepositCtfTk.IOPSet = { using MIsoDepositParamGlobalViewIOBlock }
+replace muParamGlobalIsoDepositCtfTk.ExtractorPSet = { using MIsoTrackExtractorGsBlock }
 
-module muTrackerIsoDepositCtfTk 
-       = muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
-replace muTrackerIsoDepositCtfTk.IOPSet = { using MIsoDepositTrackerIOBlock }
+module muParamGlobalIsoDepositCalByAssociatorTowers 
+= muIsoDepositCalByAssociatorTowers from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
+replace muParamGlobalIsoDepositCalByAssociatorTowers.IOPSet = { using MIsoDepositParamGlobalViewMultiIOBlock }
 
+module muParamGlobalIsoDepositCalByAssociatorHits 
+= muIsoDepositCalByAssociatorHits from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cfi"
+replace muParamGlobalIsoDepositCalByAssociatorHits.IOPSet = { using MIsoDepositParamGlobalViewMultiIOBlock }
+
+module muParamGlobalIsoDepositJets 
+= muIsoDepositJets from "RecoMuon/MuonIsolationProducers/data/muIsoDepositJets.cfi"
+replace muParamGlobalIsoDepositJets.IOPSet = { using MIsoDepositParamGlobalViewIOBlock }
+
+#for bw compat (kill later)
 module muParamGlobalIsoDepositGsTk 
-       = muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
+= muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
 replace muParamGlobalIsoDepositGsTk.IOPSet = { using MIsoDepositParamGlobalIOBlock }
 replace muParamGlobalIsoDepositGsTk.ExtractorPSet = { using MIsoTrackExtractorGsBlock }
 
-#muIsoDeposit maker for trackerMuons based on TrackAssociator using towers
-module muGlobalIsoDepositCalByAssociatorTowers 
-       = muIsoDepositCalByAssociatorTowers from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
-replace muGlobalIsoDepositCalByAssociatorTowers.IOPSet = { using MIsoDepositGlobalMultiIOBlock }
-
-module muTrackerIsoDepositCalByAssociatorTowers 
-       = muIsoDepositCalByAssociatorTowers from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
-replace muTrackerIsoDepositCalByAssociatorTowers.IOPSet = { using MIsoDepositTrackerMultiIOBlock }
-
-
-#muIsoDeposit maker for globalMuons and trackerMuons based on TrackAssociator using rec-hits
-module muGlobalIsoDepositCalByAssociatorHits 
-       = muIsoDepositCalByAssociatorHits from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cfi"
-replace muGlobalIsoDepositCalByAssociatorHits.IOPSet = { using MIsoDepositGlobalMultiIOBlock }
-
-module muTrackerIsoDepositCalByAssociatorHits 
-       = muIsoDepositCalByAssociatorHits from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cfi"
-replace muTrackerIsoDepositCalByAssociatorHits.IOPSet = { using MIsoDepositTrackerMultiIOBlock }
-
-#muIsoDeposit maker for trackerMuons based on TrackAssociator using towers
-module muGlobalIsoDepositJets 
-       = muIsoDepositJets from "RecoMuon/MuonIsolationProducers/data/muIsoDepositJets.cfi"
-replace muGlobalIsoDepositJets.IOPSet = { using MIsoDepositGlobalIOBlock }
-
-module muTrackerIsoDepositJets 
-       = muIsoDepositJets from "RecoMuon/MuonIsolationProducers/data/muIsoDepositJets.cfi"
-replace muTrackerIsoDepositJets.IOPSet = { using MIsoDepositTrackerIOBlock }
-
-#the same but for FastSim muons
 module muParamGlobalIsoDepositCalEcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
 replace muParamGlobalIsoDepositCalEcal.IOPSet = { using MIsoDepositParamGlobalIOBlock }
 replace muParamGlobalIsoDepositCalEcal.ExtractorPSet = { using MIsoCaloExtractorEcalBlock } 
@@ -75,59 +45,23 @@ replace muParamGlobalIsoDepositCalHcal.ExtractorPSet = { using MIsoCaloExtractor
 ##########################################################################
 # and now sequences of the above
 ##########################################################################
-
-sequence muIsoDepositsAssoc_muons = {
-  muIsoDepositCalByAssociatorTowers & muIsoDepositCalByAssociatorHits
-}
-sequence muIsoDepositsAssoc_globalMuons = {
-  muGlobalIsoDepositCalByAssociatorTowers & muGlobalIsoDepositCalByAssociatorHits
-}
-sequence muIsoDepositsAssoc_trackerMuons = {
-  muTrackerIsoDepositCalByAssociatorTowers & muTrackerIsoDepositCalByAssociatorHits
-}
-#------------------------------
-
-sequence muIsoDepositsCal_ParamGlobalMuons = {
-  muParamGlobalIsoDepositCalEcal & muParamGlobalIsoDepositCalHcal
-}
-#------------------------------
-
-sequence muIsoDepositsJets_muons = {
-  muIsoDepositJets
-}
-sequence muIsoDepositsJets_globalMuons = {
-  muGlobalIsoDepositJets
-}
-sequence muIsoDepositsJets_trackerMuons = {
-  muTrackerIsoDepositJets
-}
-
-#------------------------------
-
-sequence muIsoDepositsTk_muons = {
-  muIsoDepositCtfTk
-}
-sequence muIsoDepositsTk_globalMuons = {
-  muGlobalIsoDepositCtfTk
-}
-sequence muIsoDepositsTk_ParamGlobalMuons = {
-  muParamGlobalIsoDepositGsTk
-}
-sequence muIsoDepositsTk_trackerMuons = {
-  muTrackerIsoDepositCtfTk
-}
-
 #------------------------------
 # "standard sequences"
 sequence muIsoDeposits_muons = {
-  muIsoDepositsTk_muons & muIsoDepositCalByAssociatorTowers & muIsoDepositsJets_muons
+    muIsoDepositCtfTk & 
+    muIsoDepositCalByAssociatorTowers & 
+    muIsoDepositJets
 }
-sequence muIsoDeposits_globalMuons = {
-  muIsoDepositsTk_globalMuons & muGlobalIsoDepositCalByAssociatorTowers & muIsoDepositsJets_globalMuons
+
+#old one, using a reduced config set
+sequence muIsoDeposits_ParamGlobalMuonsOld = {
+    muParamGlobalIsoDepositGsTk & 
+    muParamGlobalIsoDepositCalEcal & 
+    muParamGlobalIsoDepositCalHcal
 }
+
 sequence muIsoDeposits_ParamGlobalMuons = {
-  muIsoDepositsTk_ParamGlobalMuons & muIsoDepositsCal_ParamGlobalMuons
-}
-sequence muIsoDeposits_trackerMuons = {
-  muTrackerIsoDepositCtfTk & muTrackerIsoDepositCalByAssociatorTowers & muIsoDepositsJets_trackerMuons
+    muParamGlobalIsoDepositCtfTk & 
+    muParamGlobalIsoDepositCalByAssociatorTowers & 
+    muParamGlobalIsoDepositJets
 }

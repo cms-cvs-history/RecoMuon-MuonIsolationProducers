@@ -1,89 +1,90 @@
-# -*-SH-*-
+# -*-TCL-*-
 
 block MIsoDepositViewMultiIOBlock = {
-  string InputType = "MuonCollection"
-  string OutputType = "VectorToCandidateView"
-  bool ExtractForCandidate = false
+    string InputType = "MuonCollection"
+    string OutputType = "VectorToCandidateView"
+    bool ExtractForCandidate = false
 
-  string MuonTrackRefType = "bestGlbTrkSta"
+    string MuonTrackRefType = "bestGlbTrkSta"
 
-  InputTag inputMuonCollection = muons
-  bool MultipleDepositsFlag = true
+    InputTag inputMuonCollection = muons
+    bool MultipleDepositsFlag = true
 }
 
 block MIsoDepositViewIOBlock = {
-  string InputType = "MuonCollection"
-  string OutputType = "VectorToCandidateView"
-  bool ExtractForCandidate = false
+    string InputType = "MuonCollection"
+    string OutputType = "VectorToCandidateView"
+    bool ExtractForCandidate = false
 
-  string MuonTrackRefType = "bestGlbTrkSta"
+    string MuonTrackRefType = "bestGlbTrkSta"
 
-  InputTag inputMuonCollection = muons
-  bool MultipleDepositsFlag = false
+    InputTag inputMuonCollection = muons
+    bool MultipleDepositsFlag = false
+}
+
+block MIsoDepositParamGlobalViewMultiIOBlock = {
+    string InputType = "MuonCollection"
+    string OutputType = "VectorToCandidateView"
+    bool ExtractForCandidate = false
+
+    string MuonTrackRefType = "bestGlbTrkSta"
+
+    InputTag inputMuonCollection = paramMuons:ParamGlobalMuons
+    bool MultipleDepositsFlag = true
 }
 
 block MIsoDepositParamGlobalViewIOBlock = {
-  string InputType = "MuonCollection"
-  string OutputType = "VectorToCandidateView"
-  bool ExtractForCandidate = false
+    string InputType = "MuonCollection"
+    string OutputType = "VectorToCandidateView"
+    bool ExtractForCandidate = false
 
-  string MuonTrackRefType = "bestGlbTrkSta"
+    string MuonTrackRefType = "bestGlbTrkSta"
 
-  InputTag inputMuonCollection = paramMuons:ParamGlobalMuons
-  bool MultipleDepositsFlag = false
+    InputTag inputMuonCollection = paramMuons:ParamGlobalMuons
+    bool MultipleDepositsFlag = false
+}
+
+block MIsoDepositParamGlobalMultyIOBlock = {
+    string InputType = "MuonCollection"
+    string OutputType = "MapToTracks"
+    bool ExtractForCandidate = false
+
+    string MuonTrackRefType = "track"
+
+    InputTag inputMuonCollection = paramMuons:ParamGlobalMuons
+    bool MultipleDepositsFlag = true
 }
 
 block MIsoDepositParamGlobalIOBlock = {
-  string InputType = "MuonCollection"
-  string OutputType = "MapToTracks"
-  bool ExtractForCandidate = false
+    string InputType = "MuonCollection"
+    string OutputType = "MapToTracks"
+    bool ExtractForCandidate = false
 
-  string MuonTrackRefType = "track"
+    string MuonTrackRefType = "track"
 
-  InputTag inputMuonCollection = paramMuons:ParamGlobalMuons
-  bool MultipleDepositsFlag = false
+    InputTag inputMuonCollection = paramMuons:ParamGlobalMuons
+    bool MultipleDepositsFlag = false
 }
 
 block MIsoDepositGlobalIOBlock = {
-  string InputType = "TrackCollection"
-  string OutputType = "MapToTracks"
-  bool ExtractForCandidate = false
+    string InputType = "TrackCollection"
+    string OutputType = "MapToTracks"
+    bool ExtractForCandidate = false
 
-  string MuonTrackRefType = "track"
+    string MuonTrackRefType = "track"
 
-  InputTag inputMuonCollection = globalMuons
-  bool MultipleDepositsFlag = false
+    InputTag inputMuonCollection = globalMuons
+    bool MultipleDepositsFlag = false
 }
 
 block MIsoDepositGlobalMultiIOBlock = {
-  string InputType = "TrackCollection"
-  string OutputType = "MapToTracks"
-  bool ExtractForCandidate = false
+    string InputType = "TrackCollection"
+    string OutputType = "MapToTracks"
+    bool ExtractForCandidate = false
 
-  string MuonTrackRefType = "track"
+    string MuonTrackRefType = "track"
 
-  InputTag inputMuonCollection = globalMuons
-  bool MultipleDepositsFlag = true
+    InputTag inputMuonCollection = globalMuons
+    bool MultipleDepositsFlag = true
 }
 
-block MIsoDepositTrackerIOBlock = {
-  string InputType = "MuonCollection"
-  string OutputType = "MapToTracks"
-  bool ExtractForCandidate = false
-
-  string MuonTrackRefType = "track"
-
-  InputTag inputMuonCollection = trackerMuons
-  bool MultipleDepositsFlag = false
-}
-
-block MIsoDepositTrackerMultiIOBlock = {
-  string InputType = "MuonCollection"
-  string OutputType = "MapToTracks"
-  bool ExtractForCandidate = false
-
-  string MuonTrackRefType = "track"
-
-  InputTag inputMuonCollection = trackerMuons
-  bool MultipleDepositsFlag = true
-}
