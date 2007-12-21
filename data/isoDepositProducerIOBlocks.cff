@@ -1,6 +1,6 @@
 # -*-TCL-*-
 
-block MIsoDepositParamGlobalMultyIOBlock = {
+block MIsoDepositParamGlobalMultiIOBlock = {
     bool ReadFromRecoMuonCollection = true
     string MuonTrackRefType = "track"
 
