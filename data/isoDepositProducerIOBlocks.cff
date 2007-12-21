@@ -1,0 +1,50 @@
+# -*-TCL-*-
+
+block MIsoDepositParamGlobalMultyIOBlock = {
+    bool ReadFromRecoMuonCollection = true
+    string MuonTrackRefType = "track"
+
+    InputTag inputMuonCollection = paramMuons:ParamGlobalMuons
+    bool MultipleDepositsFlag = true
+}
+
+block MIsoDepositParamGlobalIOBlock = {
+    bool ReadFromRecoMuonCollection = true
+    string MuonTrackRefType = "track"
+
+    InputTag inputMuonCollection = paramMuons:ParamGlobalMuons
+    bool MultipleDepositsFlag = false
+}
+
+block MIsoDepositGlobalIOBlock = {
+    bool ReadFromRecoMuonCollection = false
+    string MuonTrackRefType = "combinedMuon"
+
+    InputTag inputMuonCollection = globalMuons
+    bool MultipleDepositsFlag = false
+}
+
+block MIsoDepositGlobalMultiIOBlock = {
+    bool ReadFromRecoMuonCollection = false
+    string MuonTrackRefType = "combinedMuon"
+
+    InputTag inputMuonCollection = globalMuons
+    bool MultipleDepositsFlag = true
+}
+
+block MIsoDepositTrackerIOBlock = {
+    bool ReadFromRecoMuonCollection = true
+    string MuonTrackRefType = "track"
+
+    InputTag inputMuonCollection = trackerMuons
+    bool MultipleDepositsFlag = false
+}
+
+block MIsoDepositTrackerMultiIOBlock = {
+    bool ReadFromRecoMuonCollection = true
+    string MuonTrackRefType = "track"
+
+    InputTag inputMuonCollection = trackerMuons
+    bool MultipleDepositsFlag = true
+}
+

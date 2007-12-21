@@ -1,0 +1,21 @@
+# -*-TCL-*-
+
+block MIsoTrackExtractorCtfBlock = {
+    string ComponentName = "TrackExtractor"
+    InputTag inputTrackCollection = ctfWithMaterialTracks
+    untracked string DepositLabel = ""
+    double Diff_r = 0.1
+    double Diff_z = 0.2
+    double DR_Max = 1.0
+    double DR_Veto = 0.01
+}
+
+block MIsoTrackExtractorGsBlock = {
+    string ComponentName = "TrackExtractor"
+    InputTag inputTrackCollection = gsWithMaterialTracks
+    untracked string DepositLabel = ""
+    double Diff_r = 0.1
+    double Diff_z = 0.2
+    double DR_Max = 1.0
+    double DR_Veto = 0.01
+}

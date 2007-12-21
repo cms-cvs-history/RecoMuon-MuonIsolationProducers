@@ -1,57 +1,8 @@
 module muIsoDepositCalByAssociatorTowers = MuIsoDepositProducer {
-  bool ReadFromRecoMuonCollection = false
-  string MuonTrackRefType = "combinedMuon"
+  using MIsoDepositGlobalMultiIOBlock
 
-  InputTag inputMuonCollection = globalMuons
-  bool MultipleDepositsFlag = true
   PSet ExtractorPSet = 
   {
-    string ComponentName = "CaloExtractorByAssociator"
-    vstring DepositInstanceLabels = { "ecal", "hcal", "ho" }
-
-    string PropagatorName = "SteppingHelixPropagatorAny"
-
-    include "TrackingTools/TrackAssociator/data/default.cfi" 
-    #explicitely set the ones needed in this producer (below) 
-
-    untracked string DepositLabel = "Cal"
-    bool UseRecHitsFlag = false
-
-    double DR_Max = 1.0
-
-    double DR_Veto_E = 0.07
-    double DR_Veto_H = 0.10
-    double DR_Veto_HO = 0.10
-#count a tower if et> threshold
-    double Threshold_E = 0.2
-    double Threshold_H = 0.5
-    double Threshold_HO = 0.5
-#count a tower if e> 3sigmaNoise
-    double Noise_EB = 0.025
-    double Noise_EE = 0.1
-    double Noise_HB = 0.2
-    double Noise_HE = 0.2
-    double Noise_HO = 0.2
-    double NoiseTow_EB = 0.04
-    double NoiseTow_EE = 0.15
-
-    untracked bool PrintTimeReport = false
+    using MIsoCaloExtractorByAssociatorTowersBlock 
   }
-
 }
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.EBRecHitCollectionLabel   = ecalRecHit:EcalRecHitsEB 
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.EERecHitCollectionLabel   = ecalRecHit:EcalRecHitsEE 
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.CaloTowerCollectionLabel  = towerMaker 
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.HBHERecHitCollectionLabel = hbhereco 
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.HORecHitCollectionLabel   = horeco 
- 
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useEcal = false      # RecoHits 
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useHcal = false     # RecoHits 
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useHO = false        # RecoHits 
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useCalo = true     # CaloTowers 
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.useMuon = false      # RecoHits 
-
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.dREcalPreselection = 1.0 
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.dRHcalPreselection = 1.0 
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.dREcal = 1.0 
-#replace muIsoDepositCalByAssociatorTowers.ExtractorPSet.TrackAssociatorParameters.dRHcal = 1.0 
