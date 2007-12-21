@@ -44,7 +44,7 @@ block MIsoDepositParamGlobalViewIOBlock = {
     bool MultipleDepositsFlag = false
 }
 
-block MIsoDepositParamGlobalMultyIOBlock = {
+block MIsoDepositParamGlobalMultiIOBlock = {
     string InputType = "MuonCollection"
     string OutputType = "MapToTracks"
     bool ExtractForCandidate = false
