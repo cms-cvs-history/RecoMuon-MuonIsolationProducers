@@ -15,141 +15,162 @@ include "RecoMuon/MuonIsolationProducers/data/caloExtractorByAssociatorBlocks.cf
 include "RecoMuon/MuonIsolationProducers/data/jetExtractorBlock.cff"
 include "RecoMuon/MuonIsolationProducers/data/caloExtractorBlocks.cff"
 
-include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
-include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
-include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cfi"
+# include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
+# include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
+# include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cfi"
 
 
 #muIsoDeposit from tracks for trackerMuons; make distinct names for tracker and global muons
 module muGlobalIsoDepositCtfTk = MuIsoDepositProducer {
-	using MIsoDepositGlobalIOBlock
-	PSet ExtractorPSet = { using MIsoTrackExtractorCtfBlock }
+    using MIsoDepositGlobalIOBlock
+    PSet ExtractorPSet = { using MIsoTrackExtractorCtfBlock }
 }
 
 module muParamGlobalIsoDepositGsTk  = MuIsoDepositProducer {
-	using MIsoDepositParamGlobalIOBlock
-	PSet ExtractorPSet = { using MIsoTrackExtractorGsBlock }
+    using MIsoDepositParamGlobalIOBlock
+    PSet ExtractorPSet = { using MIsoTrackExtractorGsBlock }
+}
+#confusing, is it? In fact trying to make the names as similar as in the standard reco
+module muParamGlobalIsoDepositCtfTk  = MuIsoDepositProducer {
+    using MIsoDepositParamGlobalIOBlock
+    PSet ExtractorPSet = { using MIsoTrackExtractorGsBlock }
 }
 
 module muTrackerIsoDepositCtfTk = MuIsoDepositProducer {
-	using MIsoDepositTrackerIOBlock
-	PSet ExtractorPSet = { using MIsoTrackExtractorCtfBlock }
+    using MIsoDepositTrackerIOBlock
+    PSet ExtractorPSet = { using MIsoTrackExtractorCtfBlock }
 }
 
 #muIsoDeposit maker for trackerMuons based on TrackAssociator using towers
 module muGlobalIsoDepositCalByAssociatorTowers = MuIsoDepositProducer {
-	using MIsoDepositGlobalMultiIOBlock
-	PSet ExtractorPSet = { using MIsoCaloExtractorByAssociatorTowersBlock }
+    using MIsoDepositGlobalMultiIOBlock
+    PSet ExtractorPSet = { using MIsoCaloExtractorByAssociatorTowersBlock }
+}
+module muParamGlobalIsoDepositCalByAssociatorTowers = MuIsoDepositProducer {
+    using MIsoDepositParamGlobalMultiIOBlock
+    PSet ExtractorPSet = { using MIsoCaloExtractorByAssociatorTowersBlock }
 }
 
 module muTrackerIsoDepositCalByAssociatorTowers = MuIsoDepositProducer {
-	using MIsoDepositTrackerMultiIOBlock
-	PSet ExtractorPSet = { using MIsoCaloExtractorByAssociatorTowersBlock }
+    using MIsoDepositTrackerMultiIOBlock
+    PSet ExtractorPSet = { using MIsoCaloExtractorByAssociatorTowersBlock }
 }
 
 #muIsoDeposit maker for globalMuons and trackerMuons based on TrackAssociator using rec-hits
 module muGlobalIsoDepositCalByAssociatorHits = MuIsoDepositProducer {
-	using MIsoDepositGlobalMultiIOBlock
-	PSet ExtractorPSet = { using MIsoCaloExtractorByAssociatorHitsBlock }
+    using MIsoDepositGlobalMultiIOBlock
+    PSet ExtractorPSet = { using MIsoCaloExtractorByAssociatorHitsBlock }
+}
+module muParamGlobalIsoDepositCalByAssociatorHits = MuIsoDepositProducer {
+    using MIsoDepositParamGlobalMultiIOBlock
+    PSet ExtractorPSet = { using MIsoCaloExtractorByAssociatorHitsBlock }
 }
 
 module muTrackerIsoDepositCalByAssociatorHits = MuIsoDepositProducer {
-	using MIsoDepositTrackerMultiIOBlock
-	PSet ExtractorPSet = { using MIsoCaloExtractorByAssociatorHitsBlock }
+    using MIsoDepositTrackerMultiIOBlock
+    PSet ExtractorPSet = { using MIsoCaloExtractorByAssociatorHitsBlock }
 }
 
 #muIsoDeposit maker for trackerMuons based on TrackAssociator using towers
 module muGlobalIsoDepositJets = MuIsoDepositProducer {
-	using MIsoDepositGlobalIOBlock
-	PSet ExtractorPSet = { using MIsoJetExtractorBlock }
+    using MIsoDepositGlobalIOBlock
+    PSet ExtractorPSet = { using MIsoJetExtractorBlock }
+}
+module muParamGlobalIsoDepositJets = MuIsoDepositProducer {
+    using MIsoDepositParamGlobalIOBlock
+    PSet ExtractorPSet = { using MIsoJetExtractorBlock }
 }
 module muTrackerIsoDepositJets = MuIsoDepositProducer {
-	using MIsoDepositTrackerIOBlock
-	PSet ExtractorPSet = { using MIsoJetExtractorBlock }
+    using MIsoDepositTrackerIOBlock
+    PSet ExtractorPSet = { using MIsoJetExtractorBlock }
 }
 
 #Ecal-only muIsoDeposit using CaloExtractor for globalMuons
 module muGlobalIsoDepositCalEcal = MuIsoDepositProducer {
-	using MIsoDepositGlobalIOBlock
-	PSet ExtractorPSet = { using MIsoCaloExtractorEcalBlock }
+    using MIsoDepositGlobalIOBlock
+    PSet ExtractorPSet = { using MIsoCaloExtractorEcalBlock }
 }
 module muParamGlobalIsoDepositCalEcal = MuIsoDepositProducer {
-	using MIsoDepositParamGlobalIOBlock
-	PSet ExtractorPSet = { using MIsoCaloExtractorEcalBlock }
+    using MIsoDepositParamGlobalIOBlock
+    PSet ExtractorPSet = { using MIsoCaloExtractorEcalBlock }
 }
 module muTrackerIsoDepositCalEcal = MuIsoDepositProducer {
-	using MIsoDepositTrackerIOBlock
-	PSet ExtractorPSet = { using MIsoCaloExtractorEcalBlock }
+    using MIsoDepositTrackerIOBlock
+    PSet ExtractorPSet = { using MIsoCaloExtractorEcalBlock }
 }
 
 
 #Hcal-only muIsoDeposit using CaloExtractor for globalMuons
 module muGlobalIsoDepositCalHcal = MuIsoDepositProducer {
-	using MIsoDepositGlobalIOBlock
-	PSet ExtractorPSet = { using MIsoCaloExtractorHcalBlock }
+    using MIsoDepositGlobalIOBlock
+    PSet ExtractorPSet = { using MIsoCaloExtractorHcalBlock }
 }
 module muParamGlobalIsoDepositCalHcal = MuIsoDepositProducer {
-	using MIsoDepositParamGlobalIOBlock
-	PSet ExtractorPSet = { using MIsoCaloExtractorHcalBlock }
+    using MIsoDepositParamGlobalIOBlock
+    PSet ExtractorPSet = { using MIsoCaloExtractorHcalBlock }
 }
 module muTrackerIsoDepositCalHcal = MuIsoDepositProducer {
-	using MIsoDepositTrackerIOBlock
-	PSet ExtractorPSet = { using MIsoCaloExtractorHcalBlock }
+    using MIsoDepositTrackerIOBlock
+    PSet ExtractorPSet = { using MIsoCaloExtractorHcalBlock }
 }
 
 ##########################################################################
 # and now sequences of the above
 ##########################################################################
 
-sequence muIsoDepositsAssoc_globalMuons = {
-  muGlobalIsoDepositCalByAssociatorTowers & muGlobalIsoDepositCalByAssociatorHits
-}
-sequence muIsoDepositsAssoc_trackerMuons = {
-  muTrackerIsoDepositCalByAssociatorTowers & muTrackerIsoDepositCalByAssociatorHits
-}
-#------------------------------
-
-sequence muIsoDepositsCal_globalMuons = {
-  muGlobalIsoDepositCalEcal & muGlobalIsoDepositCalHcal
-}
-sequence muIsoDepositsCal_ParamGlobalMuons = {
-  muParamGlobalIsoDepositCalEcal & muParamGlobalIsoDepositCalHcal
-}
-sequence muIsoDepositsCal_trackerMuons = {
-  muTrackerIsoDepositCalEcal & muTrackerIsoDepositCalHcal
-}
-#------------------------------
-
-sequence muIsoDepositsJets_globalMuons = {
-  muGlobalIsoDepositJets
-}
-
-sequence muIsoDepositsJets_trackerMuons = {
-  muTrackerIsoDepositJets
-}
-
-#------------------------------
-
-sequence muIsoDepositsTk_globalMuons = {
-  muGlobalIsoDepositCtfTk
-}
-sequence muIsoDepositsTk_ParamGlobalMuons = {
-  muParamGlobalIsoDepositGsTk
-}
-sequence muIsoDepositsTk_trackerMuons = {
-  muTrackerIsoDepositCtfTk
-}
-
 #------------------------------
 # "standard sequences"
 sequence muIsoDeposits_globalMuons = {
-  muIsoDepositsTk_globalMuons & muGlobalIsoDepositCalByAssociatorTowers & muIsoDepositsJets_globalMuons
-}
-
-sequence muIsoDeposits_ParamGlobalMuons = {
-  muIsoDepositsTk_ParamGlobalMuons & muIsoDepositsCal_ParamGlobalMuons
+    muGlobalIsoDepositCtfTk & 
+    muGlobalIsoDepositCalByAssociatorTowers & 
+    muGlobalIsoDepositJets
 }
 
 sequence muIsoDeposits_trackerMuons = {
-  muTrackerIsoDepositCtfTk & muTrackerIsoDepositCalByAssociatorTowers & muIsoDepositsJets_trackerMuons
+    muTrackerIsoDepositCtfTk & 
+    muTrackerIsoDepositCalByAssociatorTowers & 
+    muTrackerIsoDepositJets
 }
+
+sequence muIsoDeposits_ParamGlobalMuons = {
+    muParamGlobalIsoDepositGsTk & 
+    muParamGlobalIsoDepositCalEcal &
+    muParamGlobalIsoDepositCalHcal
+}
+
+sequence muIsoDeposits_ParamGlobalMuonsNew = {
+    muParamGlobalIsoDepositCtfTk & 
+    muParamGlobalIsoDepositCalByAssociatorTowers &
+    muParamGlobalIsoDepositJets
+}
+
+sequence muIsoDepositsAll_globalMuons = {
+    muGlobalIsoDepositCtfTk & 
+    muGlobalIsoDepositCalByAssociatorTowers & 
+    muGlobalIsoDepositCalByAssociatorHits & 
+    muGlobalIsoDepositCalEcal &
+    muGlobalIsoDepositCalHcal &
+    muGlobalIsoDepositJets
+}
+
+sequence muIsoDepositsAll_trackerMuons = {
+    muTrackerIsoDepositCtfTk & 
+    muTrackerIsoDepositCalByAssociatorTowers & 
+    muTrackerIsoDepositCalByAssociatorHits &
+    muTrackerIsoDepositCalEcal &
+    muTrackerIsoDepositCalHcal &
+    muTrackerIsoDepositJets
+}
+
+sequence muIsoDepositsAll_ParamGlobalMuons = {
+    muParamGlobalIsoDepositGsTk & 
+    muParamGlobalIsoDepositCalEcal &
+    muParamGlobalIsoDepositCalHcal
+    &
+    muParamGlobalIsoDepositCtfTk & 
+    muParamGlobalIsoDepositCalByAssociatorTowers &
+    muParamGlobalIsoDepositCalByAssociatorHits &
+    muParamGlobalIsoDepositJets
+    
+}
+
