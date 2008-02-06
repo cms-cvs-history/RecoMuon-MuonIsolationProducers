@@ -1,4 +1,6 @@
 # -*-TCL-*-
+include "RecoMuon/MuonIsolationProducers/data/isoDepositProducerIOBlocks.cff"
+include "RecoMuon/MuonIsolationProducers/data/caloExtractorByAssociatorBlocks.cff"
 
 module muIsoDepositCalByAssociatorHits = MuIsoDepositProducer {
     PSet IOPSet = {
