@@ -4,14 +4,14 @@
 include "RecoMuon/MuonIsolationProducers/data/muIsoDeposits_setup.cff"
 
 #the default set of modules first
-include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
+include "RecoMuon/MuonIsolationProducers/data/muIsoDepositTk.cfi"
 include "RecoMuon/MuonIsolationProducers/data/muIsoDepositJets.cfi"
 include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorTowers.cfi"
 include "RecoMuon/MuonIsolationProducers/data/muIsoDepositCalByAssociatorHits.cfi"
 
 #the same but for FastSim muons
 module muParamGlobalIsoDepositCtfTk 
-= muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
+= muIsoDepositTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositTk.cfi"
 replace muParamGlobalIsoDepositCtfTk.IOPSet = { using MIsoDepositParamGlobalViewIOBlock }
 replace muParamGlobalIsoDepositCtfTk.ExtractorPSet = { using MIsoTrackExtractorGsBlock }
 
@@ -29,7 +29,7 @@ replace muParamGlobalIsoDepositJets.IOPSet = { using MIsoDepositParamGlobalViewI
 
 #for bw compat (kill later)
 module muParamGlobalIsoDepositGsTk 
-= muIsoDepositCtfTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCtfTk.cfi"
+= muIsoDepositTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositTk.cfi"
 replace muParamGlobalIsoDepositGsTk.IOPSet = { using MIsoDepositParamGlobalIOBlock }
 replace muParamGlobalIsoDepositGsTk.ExtractorPSet = { using MIsoTrackExtractorGsBlock }
 
@@ -48,7 +48,7 @@ replace muParamGlobalIsoDepositCalHcal.ExtractorPSet = { using MIsoCaloExtractor
 #------------------------------
 # "standard sequences"
 sequence muIsoDeposits_muons = {
-    muIsoDepositCtfTk & 
+    muIsoDepositTk & 
     muIsoDepositCalByAssociatorTowers & 
     muIsoDepositJets
 }

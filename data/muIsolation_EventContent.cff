@@ -6,7 +6,7 @@
 block RecoMuonIsolationFEVT = {
     untracked vstring outputCommands = {
 	#MuIsoDeposits
-	"keep *_muIsoDepositCtfTk_*_*",
+	"keep *_muIsoDepositTk_*_*",
 	"keep *_muIsoDepositCalByAssociatorTowers_*_*",
 	"keep *_muIsoDepositCalByAssociatorHits_*_*",
 	"keep *_muIsoDepositJets_*_*",
@@ -22,7 +22,7 @@ block RecoMuonIsolationFEVT = {
 block RecoMuonIsolationRECO = {
     untracked vstring outputCommands = {
 	#MuIsoDeposits
-	"keep *_muIsoDepositCtfTk_*_*",
+	"keep *_muIsoDepositTk_*_*",
 	"keep *_muIsoDepositCalByAssociatorTowers_*_*",
 	"keep *_muIsoDepositCalByAssociatorHits_*_*",
 	"keep *_muIsoDepositJets_*_*",
@@ -39,7 +39,7 @@ block RecoMuonIsolationRECO = {
 block RecoMuonIsolationAOD = {
     untracked vstring outputCommands = {
 	#MuIsoDeposits
-	"keep *_muIsoDepositCtfTk_*_*",
+	"keep *_muIsoDepositTk_*_*",
 	"keep *_muIsoDepositCalByAssociatorTowers_*_*",
 	"keep *_muIsoDepositCalByAssociatorHits_*_*",
 	"keep *_muIsoDepositJets_*_*"
