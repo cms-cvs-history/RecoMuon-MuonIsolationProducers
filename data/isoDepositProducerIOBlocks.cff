@@ -2,7 +2,6 @@
 
 block MIsoDepositViewMultiIOBlock = {
     string InputType = "MuonCollection"
-    string OutputType = "VectorToCandidateView"
     bool ExtractForCandidate = false
 
     string MuonTrackRefType = "bestGlbTrkSta"
@@ -13,7 +12,6 @@ block MIsoDepositViewMultiIOBlock = {
 
 block MIsoDepositViewIOBlock = {
     string InputType = "MuonCollection"
-    string OutputType = "VectorToCandidateView"
     bool ExtractForCandidate = false
 
     string MuonTrackRefType = "bestGlbTrkSta"
@@ -24,7 +22,6 @@ block MIsoDepositViewIOBlock = {
 
 block MIsoDepositParamGlobalViewMultiIOBlock = {
     string InputType = "MuonCollection"
-    string OutputType = "VectorToCandidateView"
     bool ExtractForCandidate = false
 
     string MuonTrackRefType = "bestGlbTrkSta"
@@ -35,7 +32,6 @@ block MIsoDepositParamGlobalViewMultiIOBlock = {
 
 block MIsoDepositParamGlobalViewIOBlock = {
     string InputType = "MuonCollection"
-    string OutputType = "VectorToCandidateView"
     bool ExtractForCandidate = false
 
     string MuonTrackRefType = "bestGlbTrkSta"
@@ -46,7 +42,6 @@ block MIsoDepositParamGlobalViewIOBlock = {
 
 block MIsoDepositParamGlobalMultiIOBlock = {
     string InputType = "MuonCollection"
-    string OutputType = "MapToTracks"
     bool ExtractForCandidate = false
 
     string MuonTrackRefType = "track"
@@ -57,7 +52,6 @@ block MIsoDepositParamGlobalMultiIOBlock = {
 
 block MIsoDepositParamGlobalIOBlock = {
     string InputType = "MuonCollection"
-    string OutputType = "MapToTracks"
     bool ExtractForCandidate = false
 
     string MuonTrackRefType = "track"
@@ -68,7 +62,6 @@ block MIsoDepositParamGlobalIOBlock = {
 
 block MIsoDepositGlobalIOBlock = {
     string InputType = "TrackCollection"
-    string OutputType = "MapToTracks"
     bool ExtractForCandidate = false
 
     string MuonTrackRefType = "track"
@@ -79,7 +72,6 @@ block MIsoDepositGlobalIOBlock = {
 
 block MIsoDepositGlobalMultiIOBlock = {
     string InputType = "TrackCollection"
-    string OutputType = "MapToTracks"
     bool ExtractForCandidate = false
 
     string MuonTrackRefType = "track"
