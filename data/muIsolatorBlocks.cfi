@@ -1,0 +1,11 @@
+# -*-TCL-*-
+
+
+block IsolatorByDepositR03 = {
+    PSet IsolatorPSet = {
+	string ComponentName = "IsolatorByDeposit"
+	string ConeSizeType = "FixedConeSize"
+	double coneSize = 0.3
+    }
+}
+

@@ -1,0 +1,30 @@
+# -*-TCL-*-
+
+include "RecoMuon/MuonIsolationProducers/data/muIsoResultInputBlocks.cfi"
+include "RecoMuon/MuonIsolationProducers/data/muIsolatorBlocks.cfi"
+
+module muIsoResultM2C =  MuIsoCandidateResultProducer {
+    VPSet InputMuIsoDeposits = {
+	{
+	    using UnweightedInputTkDeps
+	},
+	{
+	    using UnweightedInputTowEcalDeps
+	},
+	{
+            using UnweightedInputTowHcalDeps
+	}
+    }
+    
+
+    string BeamlineOption = "BeamSpotFromEvent"
+    InputTag BeamSpotLabel = offlineBeamSpot
+    using IsolatorByDepositR03
+    
+    bool RemoveOtherVetos = true
+    
+    PSet VetoPSet = {
+	bool SelectAll = true
+    }
+}
+
