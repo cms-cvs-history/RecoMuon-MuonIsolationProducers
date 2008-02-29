@@ -2,7 +2,7 @@
 
 block MIsoTrackExtractorCtfBlock = {
     string ComponentName = "TrackExtractor"
-    InputTag inputTrackCollection = ctfWithMaterialTracks
+    InputTag inputTrackCollection = generalTracks
     untracked string DepositLabel = ""
     double Diff_r = 0.1
     double Diff_z = 0.2
