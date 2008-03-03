@@ -32,6 +32,10 @@ module muParamGlobalIsoDepositGsTk
 = muIsoDepositTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositTk.cfi"
 replace muParamGlobalIsoDepositGsTk.IOPSet = { using MIsoDepositParamGlobalIOBlock }
 replace muParamGlobalIsoDepositGsTk.ExtractorPSet = { using MIsoTrackExtractorGsBlock }
+module muParamGlobalIsoDepositTk 
+= muIsoDepositTk from "RecoMuon/MuonIsolationProducers/data/muIsoDepositTk.cfi"
+replace muParamGlobalIsoDepositTk.IOPSet = { using MIsoDepositParamGlobalIOBlock }
+replace muParamGlobalIsoDepositTk.ExtractorPSet = { using MIsoTrackExtractorBlock }
 
 module muParamGlobalIsoDepositCalEcal = muIsoDepositCal from "RecoMuon/MuonIsolationProducers/data/muIsoDepositCal.cfi"
 replace muParamGlobalIsoDepositCalEcal.IOPSet = { using MIsoDepositParamGlobalIOBlock }
@@ -61,7 +65,7 @@ sequence muIsoDeposits_ParamGlobalMuonsOld = {
 }
 
 sequence muIsoDeposits_ParamGlobalMuons = {
-    muParamGlobalIsoDepositCtfTk & 
+    muParamGlobalIsoDepositTk & 
     muParamGlobalIsoDepositCalByAssociatorTowers & 
     muParamGlobalIsoDepositJets
 }
