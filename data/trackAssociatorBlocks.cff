@@ -1,7 +1,8 @@
 # -*-TCL-*-
+include "TrackingTools/TrackAssociator/data/default.cfi"
 
 block MIsoTrackAssociatorDefault = {
-    include "TrackingTools/TrackAssociator/data/default.cfi"
+    using TrackAssociatorParameterBlock
 }
 replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.useEcal = false      # RecoHits
 replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.useHcal = false     # RecoHits
@@ -15,7 +16,7 @@ replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.dREcal = 1.0
 replace MIsoTrackAssociatorDefault.TrackAssociatorParameters.dRHcal = 1.0
 
 block MIsoTrackAssociatorTowers = {
-    include "TrackingTools/TrackAssociator/data/default.cfi"
+    using TrackAssociatorParameterBlock
 }
 replace MIsoTrackAssociatorTowers.TrackAssociatorParameters.useEcal = false      # RecoHits
 replace MIsoTrackAssociatorTowers.TrackAssociatorParameters.useHcal = false     # RecoHits
@@ -30,7 +31,7 @@ replace MIsoTrackAssociatorTowers.TrackAssociatorParameters.dRHcal = 1.0
 
 
 block MIsoTrackAssociatorHits = {
-    include "TrackingTools/TrackAssociator/data/default.cfi"
+    using TrackAssociatorParameterBlock
 }
 replace MIsoTrackAssociatorHits.TrackAssociatorParameters.useEcal = true      # RecoHits
 replace MIsoTrackAssociatorHits.TrackAssociatorParameters.useHcal = true      # RecoHits
@@ -45,7 +46,7 @@ replace MIsoTrackAssociatorHits.TrackAssociatorParameters.dRHcal = 1.0
 
 
 block MIsoTrackAssociatorJets = {
-    include "TrackingTools/TrackAssociator/data/default.cfi"
+    using TrackAssociatorParameterBlock
 }
 replace MIsoTrackAssociatorJets.TrackAssociatorParameters.useEcal = false      # RecoHits
 replace MIsoTrackAssociatorJets.TrackAssociatorParameters.useHcal = false     # RecoHits
