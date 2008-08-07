@@ -4,7 +4,7 @@ block MIsoDepositViewMultiIOBlock = {
     string InputType = "MuonCollection"
     bool ExtractForCandidate = false
 
-    string MuonTrackRefType = "bestGlbTrkSta"
+    string MuonTrackRefType = "bestTrkSta"
 
     InputTag inputMuonCollection = muons
     bool MultipleDepositsFlag = true
@@ -14,7 +14,7 @@ block MIsoDepositViewIOBlock = {
     string InputType = "MuonCollection"
     bool ExtractForCandidate = false
 
-    string MuonTrackRefType = "bestGlbTrkSta"
+    string MuonTrackRefType = "bestTrkSta"
 
     InputTag inputMuonCollection = muons
     bool MultipleDepositsFlag = false
@@ -24,7 +24,7 @@ block MIsoDepositParamGlobalViewMultiIOBlock = {
     string InputType = "MuonCollection"
     bool ExtractForCandidate = false
 
-    string MuonTrackRefType = "bestGlbTrkSta"
+    string MuonTrackRefType = "bestTrkSta"
 
     InputTag inputMuonCollection = paramMuons:ParamGlobalMuons
     bool MultipleDepositsFlag = true
@@ -34,7 +34,7 @@ block MIsoDepositParamGlobalViewIOBlock = {
     string InputType = "MuonCollection"
     bool ExtractForCandidate = false
 
-    string MuonTrackRefType = "bestGlbTrkSta"
+    string MuonTrackRefType = "bestTrkSta"
 
     InputTag inputMuonCollection = paramMuons:ParamGlobalMuons
     bool MultipleDepositsFlag = false
